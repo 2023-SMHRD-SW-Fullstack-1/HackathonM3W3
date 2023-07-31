@@ -4,6 +4,13 @@ plugins {
 }
 
 android {
+
+    // 요 코드를 적으면 안드로이드에서 객체를 하나 만든다
+    // 그 객체에는 view가 다 담긴다.
+    viewBinding {
+        enabled = true
+    }
+
     namespace 'com.hjy.hackathon'
     compileSdk 33
 
