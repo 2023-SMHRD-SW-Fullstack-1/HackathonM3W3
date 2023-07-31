@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }  //파이차트 이용
     }
 }
 rootProject.name = "Hackathon"
