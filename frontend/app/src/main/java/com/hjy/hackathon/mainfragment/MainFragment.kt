@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hjy.hackathon.R
-import com.hjy.hackathon.VO.MainVO
-import com.hjy.hackathon.databinding.ActivityMainBinding
+import com.hjy.hackathon.vo.MainVO
 import com.hjy.hackathon.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -26,6 +24,7 @@ class MainFragment : Fragment() {
 
         //파이차트 라이브러리 이용
         //binding.pie
+
 
         var data = ArrayList<MainVO>()
         binding.rvMainList
