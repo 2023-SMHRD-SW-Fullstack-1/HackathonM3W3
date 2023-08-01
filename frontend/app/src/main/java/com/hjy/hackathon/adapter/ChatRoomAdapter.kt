@@ -74,39 +74,39 @@ class ChatRoomAdapter (var context : Context ,var newchat_template: Int , var ch
         if (chatroomList[position].uidOne == FBAuth.getUid())
             oppUid = chatroomList[position].uidTwo
 
-        // getUserNick(oppUid, holder.tvCRTNick, holder.imgCRT)
+         getUserNick(oppUid, holder.tvCRTNick, holder.imgCRT)
 
 
         holder.tvCRTLastMsg.setText(chatroomList[position].lastChatMsg)
-        holder.tvCRTLastMsgTime.setText(FBAuth.myTime(chatroomList[position].lastChatTime))
+       holder.tvCRTLastMsgTime.setText(FBAuth.myTime(chatroomList[position].lastChatTime))
         }
     }
 
 
-////메소드 1
-//fun getImageData(context: Context, key : String, view: ImageView){
-//    val storageReference = Firebase.storage.reference.child("$key.png")
-//
-//    storageReference.downloadUrl.addOnCompleteListener { task->
-//        if (task.isSuccessful){
-//            Glide.with(context)
-//                .load(task.result)
-//                .into(view)
-//        }
-//    }
-//}
-//
-////메소드 2
-//fun getUserNick(uid: String, tv: TextView, iv: ImageView){
-//    FBDatabase.database.getReference("member").child(uid).get().addOnSuccessListener {
-//        val item = it.getValue(ChatVO::class.java) as ChatVO
-//        tv.setText(item.uid)
-//        getImageData(item.uid, iv)
-//
-//       }.addOnFailureListener{
-//        Log.e("firebase", "Error getting data", it)
-//    }
-//}
+//메소드 1
+fun getImageData(context: Context, key : String, view: ImageView){
+    val storageReference = Firebase.storage.reference.child("$key.png")
+
+    storageReference.downloadUrl.addOnCompleteListener { task->
+        if (task.isSuccessful){
+            Glide.with(context)
+                .load(task.result)
+                .into(view)
+        }
+    }
+}
+
+//메소드 2
+fun getUserNick(uid: String, tv: TextView, iv: ImageView){
+    FBDatabase.database.getReference("member").child(uid).get().addOnSuccessListener {
+        val item = it.getValue(ChatVO::class.java) as ChatVO
+        tv.setText(item.uid)
+        //getImageData(item.uid, iv)
+
+       }.addOnFailureListener{
+        Log.e("firebase", "Error getting data", it)
+    }
+}
 
 
 
