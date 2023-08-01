@@ -6,7 +6,7 @@ const conn = db.init();
 db.connect(conn);
 
 router.post("/rooms", (req, res)=>{
-    let id = JSON.parse(req.body.Member.id); // 아이디 받기
+    let id = JSON.parse(req.body.member.id); // 아이디 받기
     let sql = "select * from tb_chatroom where in (select chat_idx from tb_chat where mb_id = ?) order by room_at";
     conn.query(sql, [id], function(err, rows, fields){
         console.log(rows);
