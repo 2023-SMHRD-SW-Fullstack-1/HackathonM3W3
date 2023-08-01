@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.hjy.hackathon.VO.MainVO
+import com.hjy.hackathon.vo.MainVO
 import androidx.recyclerview.widget.RecyclerView.Adapter
 
 class MainAdapter (var context : Context, var template : Int, var data : ArrayList<MainVO> ) : Adapter<MainViewHolder>(){
