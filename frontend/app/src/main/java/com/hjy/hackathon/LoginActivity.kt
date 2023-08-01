@@ -3,7 +3,6 @@ package com.hjy.hackathon
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import com.hjy.hackathon.databinding.ActivityLoginBinding
 import com.hjy.hackathon.loginfragment.IntroFragment
 import com.hjy.hackathon.loginfragment.LoginFragment
@@ -24,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.flLogin.id,
                 LoginFragment()
             ).commit();
-        },3000)
+        },0)
 
     }
 }
