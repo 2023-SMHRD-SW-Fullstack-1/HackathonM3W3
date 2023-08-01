@@ -12,14 +12,14 @@
         app:cardCornerRadius="50dp">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/Img_cg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/ic_launcher_background" />
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_cgType"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardView2" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tv_cgCost"
         android:layout_width="250dp"
         android:layout_height="0dp"
         android:gravity="center"
@@ -39,6 +39,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.976"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/tv_cgType"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
