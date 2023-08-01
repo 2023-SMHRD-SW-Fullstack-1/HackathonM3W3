@@ -24,7 +24,7 @@ class MainFragment : Fragment() {
         val view = binding.root
 
         //파이차트 라이브러리 이용
-        binding.pie
+
 
 
 
