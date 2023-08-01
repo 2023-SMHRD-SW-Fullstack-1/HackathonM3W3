@@ -57,10 +57,13 @@ class JoinActivity : ProfileActivity() {
             } else {
                 val request = object : StringRequest(
                     Request.Method.POST,
-                    "http://172.30.1.23:8888/member/join",
+                    "http://172.30.1.28:8888/member/join",
                     {
                             response ->
                         Log.d("response", response.toString());
+                        if (response.toString() == "Success") {
+                            finish();
+                        }
                     },
                     {
                             error ->
@@ -71,7 +74,7 @@ class JoinActivity : ProfileActivity() {
                         val params : MutableMap<String, String> = HashMap<String, String>();
 
                         val member = MemberVO(id, pw, nick, img);
-                        params.put("board", Gson().toJson(member));
+                        params.put("member", Gson().toJson(member));
                         return params;
                     }
                 }
