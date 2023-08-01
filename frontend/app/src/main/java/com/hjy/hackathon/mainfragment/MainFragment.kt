@@ -25,6 +25,7 @@ class MainFragment : Fragment() {
         //파이차트 라이브러리 이용
         //binding.pie
 
+
         var data = ArrayList<MainVO>()
         binding.rvMainList
 
