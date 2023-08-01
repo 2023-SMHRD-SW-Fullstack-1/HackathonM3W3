@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\fragment_main.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\fragment_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\activity_chat.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\activity_new_chat.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\activity_new_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\activity_board.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\activity_board.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\fragment_feed.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\fragment_feed.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\activity_account.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\activity_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.hjy.hackathon.app-mergeDebugResources-27:/layout/fragment_main.xml",
+        "source": "com.hjy.hackathon.app-main-30:/layout/fragment_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\fragment_intro.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\fragment_intro.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\fragment_calendar.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\fragment_calendar.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\fragment_chat_list.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\fragment_chat_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-mergeDebugResources-27:\\layout\\activity_join.xml",
+        "source": "C:\\Users\\SMHRD\\.gradle\\daemon\\8.0\\com.hjy.hackathon.app-main-30:\\layout\\activity_join.xml"
+    },
+    {
+        "merged": "com.hjy.hackathon.app-mergeDebugResources-27:/layout/activity_main.xml",
+        "source": "com.hjy.hackathon.app-main-30:/layout/activity_main.xml"
+    }
+]
