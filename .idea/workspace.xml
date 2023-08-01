@@ -9,13 +9,21 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12634b50-c981-48cf-9288-042de30e06a2" name="Changes" comment="" />
+    <list default="true" id="12634b50-c981-48cf-9288-042de30e06a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/NewChatActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/NewChatActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/VO/ChatVO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/VO/ChatVO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\SMHRD\.android\avd\My_Phone.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\smhrd\.android\avd\My_Phone.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -39,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/SMHRD/AndroidStudioProjects/Hackathon/frontend",
+    "last_opened_file_path": "C:/Users/smhrd/AndroidStudioProjects/Hackathon/frontend",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
@@ -98,9 +106,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
