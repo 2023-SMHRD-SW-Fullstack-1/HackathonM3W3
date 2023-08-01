@@ -4,11 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-<<<<<<< HEAD:app/src/main/res/layout/activity_login.xml
-    tools:context=".LoginActivity"/>
-=======
-    tools:context=".loginfragment.IntroFragment">
+    android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/textView"
@@ -19,5 +16,6 @@
         android:text="대충인트로"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> 014d670c3152461a6dec20ab15b36ebb7922f33f:frontend/app/src/main/res/layout/fragment_intro.xml
+
