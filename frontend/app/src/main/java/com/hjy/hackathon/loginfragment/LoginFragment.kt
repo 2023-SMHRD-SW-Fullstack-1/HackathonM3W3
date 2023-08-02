@@ -38,12 +38,13 @@ class LoginFragment : Fragment() {
         reqQueue = Volley.newRequestQueue(requireActivity());
 
         binding.btnLogin.setOnClickListener {
+            Log.d("asd", "asd");
             val id = binding.etLoginId.text.toString();
             val pw = binding.etLoginPw.text.toString();
 
             val request = object : StringRequest(
                 Request.Method.POST,
-                "https://172.30.1.28:8888/member/login",
+                "http://172.30.1.28:8888/member/login",
                 {
                         response ->
                     Log.d("response", response.toString());

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import com.hjy.hackathon.NewChatViewHolder
 import com.hjy.hackathon.R
-import com.hjy.hackathon.utils.FBAuth
+
 import androidx.recyclerview.widget.RecyclerView.Adapter
 
 class ChatAdapter (val context : Context, var template : Int , val data:ArrayList<ChatVO>, var id : String) : Adapter<NewChatViewHolder>(){
