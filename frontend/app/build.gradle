@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    //firebase
+    id 'com.google.gms.google-services' version '4.3.13'
 }
 
 android {
@@ -42,6 +45,11 @@ android {
 dependencies {
 
 
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'  //glide
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' //파이차트 이용
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.android.volley:volley:1.2.1'
@@ -52,4 +60,28 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //circle ImageView : 채팅 동그라미 유저프로필
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+
+    // firebase
+    implementation platform('com.google.firebase:firebase-bom:30.3.1')
+    implementation 'com.google.firebase:firebase-database:20.0.5'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.2'
+
+    // firebase auth
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.8'
+
+    // firebase 의 database 에 접근하려면
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.6'
+
+    // firebase 의 storage 사용
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.2'
+
+    // animation
+    def lottieVersion = "5.2.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 }

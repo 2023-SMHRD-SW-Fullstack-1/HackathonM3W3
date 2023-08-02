@@ -1,7 +1,7 @@
 package com.hjy.hackathon.mainfragment
 
 
-import EventDecorator
+
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.util.Log
@@ -9,10 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CalendarView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.hjy.hackathon.databinding.FragmentCalendarBinding
-import java.util.Date
 
 
 class CalendarFragment : Fragment() {
