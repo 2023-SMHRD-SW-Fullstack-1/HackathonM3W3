@@ -43,14 +43,14 @@ class NewChatActivity : AppCompatActivity() {
         rvChat.layoutManager = LinearLayoutManager(applicationContext)
         rvChat.adapter=adapter
 
-        btnChatSend.setOnClickListener {
-            val fb = FBAuth;
-            Log.d("time", fb.getTime());
-            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),"수진", fb.myTime(fb.getTime())))
-
-
-            etChatMsg.text.clear()
-        }
+//        btnChatSend.setOnClickListener {
+//            val fb = FBAuth;
+//            Log.d("time", fb.getTime());
+//            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),"수진", fb.myTime(fb.getTime())))
+//
+//
+//            etChatMsg.text.clear()
+//        }
 
        myRef.addChildEventListener(ChatChildEvent(data,adapter, rvChat))
     }
