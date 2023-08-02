@@ -43,7 +43,7 @@ class LoginFragment : Fragment() {
 
             val request = object : StringRequest(
                 Request.Method.POST,
-                "http://172.30.1.28:8888/member/login",
+                "https://172.30.1.28:8888/member/login",
                 {
                         response ->
                     Log.d("response", response.toString());
