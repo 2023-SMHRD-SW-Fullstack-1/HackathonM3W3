@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "288121129508",
+    "firebase_url": "https://hackathontalk-default-rtdb.firebaseio.com",
+    "project_id": "hackathontalk",
+    "storage_bucket": "hackathontalk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288121129508:android:2a0e6f182a9582c25866b1",
+        "android_client_info": {
+          "package_name": "com.hjy.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288121129508-rumjo8reftro84t867b7jes2vvlmj21t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7GPi4UClDO2xoQrd5B71EFTus-eMH86w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288121129508-rumjo8reftro84t867b7jes2vvlmj21t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288121129508:android:3ee5c63e256313205866b1",
+        "android_client_info": {
+          "package_name": "com.ysj.splashtalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288121129508-rumjo8reftro84t867b7jes2vvlmj21t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7GPi4UClDO2xoQrd5B71EFTus-eMH86w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288121129508-rumjo8reftro84t867b7jes2vvlmj21t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
