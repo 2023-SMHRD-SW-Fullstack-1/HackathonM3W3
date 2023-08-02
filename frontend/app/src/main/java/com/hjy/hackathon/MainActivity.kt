@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import com.hjy.hackathon.databinding.ActivityMainBinding
+import com.hjy.hackathon.mainfragment.CalendarFragment
 import com.hjy.hackathon.mainfragment.ChatListFragment
 import com.hjy.hackathon.mainfragment.FeedFragment
 import com.hjy.hackathon.mainfragment.MainFragment
@@ -53,7 +54,10 @@ class MainActivity : AppCompatActivity() {
                    ).commit()
                }
                R.id.tab5 ->{ // 회원정보수정
-
+                   supportFragmentManager.beginTransaction().replace(
+                       binding.fl.id,
+                       CalendarFragment()
+                   ).commit()
 
                }
 
