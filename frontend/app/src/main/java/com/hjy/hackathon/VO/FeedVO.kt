@@ -1,4 +1,4 @@
-package com.hjy.hackathon.VO
+package com.hjy.hackathon.vo
 
 import java.util.Date
 

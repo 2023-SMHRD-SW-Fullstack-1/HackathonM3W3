@@ -14,7 +14,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.hjy.hackathon.R
-import com.hjy.hackathon.VO.FeedVO
+import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.adapter.FeedAdapter
 import org.json.JSONArray
 
@@ -50,7 +50,7 @@ class FeedFragment : Fragment() {
                     data.add(board)
                 }
 
-                val adapter = FeedAdapter(data, requireActivity())
+                val adapter : FeedAdapter = FeedAdapter(requireContext(),R.layout.feed_item ,data)
                 rv_feedList.layoutManager = LinearLayoutManager(requireActivity())
                 rv_feedList.adapter = adapter
 

@@ -2,19 +2,23 @@ package com.hjy.hackathon.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.hjy.hackathon.VO.FeedVO
+import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
-import com.hjy.hackathon.R
 import com.bumptech.glide.Glide
 
-class FeedAdapter(var data: ArrayList<FeedVO>, var context: Context) :
+class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<FeedVO>) :
     RecyclerView.Adapter<FeedViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-        return FeedViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.feed_item, parent, false)
-        )
+
+        var template_view: View = LayoutInflater.from(context).inflate(template, parent, false)
+
+        var VH: FeedViewHolder = FeedViewHolder(template_view)
+
+        return VH
+
     }
 
     override fun getItemCount(): Int {
@@ -28,11 +32,9 @@ class FeedAdapter(var data: ArrayList<FeedVO>, var context: Context) :
         holder.tv_content.text = feed.board_content
         holder.tv_like.text = feed.board_like.toString()
         holder.tv_cost.text = feed.board_cost.toString()
-        // 카테고리 TextView 해야함
-        Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
-        Glide.with(holder.itemView.context).load(feed.board_like).into(holder.img_like) // 버튼으로 사용해야 함
-        Glide.with(holder.itemView.context).load(feed.board_comment).into(holder.img_comment) // 버튼으로 사용해야 함
+        holder.tv_category.text = feed.board_title
 
+        Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
 
     }
 
