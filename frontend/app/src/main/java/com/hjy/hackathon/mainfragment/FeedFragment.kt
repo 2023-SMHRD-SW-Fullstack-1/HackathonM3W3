@@ -39,7 +39,7 @@ class FeedFragment : Fragment() {
 
         val request = object : StringRequest(
             Request.Method.GET,
-            "http://172.30.1.23:8888/board",
+            "http://172.30.1.29:8888/board/feed",
             { response ->
                 Log.d("response", response.toString())
 

@@ -1,6 +1,8 @@
 package com.hjy.hackathon.adapter
 
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +30,18 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val feed = data[position]
+
+        if (feed.mb_profile != null){
+            val imageBytesProfile = Base64.decode(feed.mb_profile, 0);
+            val imageProfile = BitmapFactory.decodeByteArray(imageBytesProfile, 0, imageBytesProfile.size);
+            holder.img_profile.setImageBitmap(imageProfile);
+        }
+
+        if (feed.board_content != null) {
+            val imageBytesContent = Base64.decode(feed.board_content, 0);
+            val imageContent = BitmapFactory.decodeByteArray(imageBytesContent, 0, imageBytesContent.size);
+            holder.img_content.setImageBitmap(imageContent);
+        }
 
         holder.tv_nick.text = feed.mb_nick
         holder.tv_content.text = feed.board_content

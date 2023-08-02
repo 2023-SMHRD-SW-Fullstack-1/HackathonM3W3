@@ -56,16 +56,6 @@ class NewChatActivity : AppCompatActivity() {
         rvChat.layoutManager = LinearLayoutManager(applicationContext)
         rvChat.adapter=adapter
 
-<<<<<<< HEAD
-//        btnChatSend.setOnClickListener {
-//            val fb = FBAuth;
-//            Log.d("time", fb.getTime());
-//            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),"수진", fb.myTime(fb.getTime())))
-//
-//
-//            etChatMsg.text.clear()
-//        }
-=======
         btnChatSend.setOnClickListener {
             val  msg = etChatMsg.text.toString()
 
@@ -75,7 +65,6 @@ class NewChatActivity : AppCompatActivity() {
             myRef.push().setValue(ChatVO(etChatMsg.text.toString(),memberVO.mb_id, myTime(getTime()))) // loginId 대신에 checkUid 의 값을 가져오고 싶은대!!! ㅠ
             etChatMsg.text.clear()
         }
->>>>>>> 48dd38babb7808424ea8f4d618a8e9c26c0eaa3f
 
        myRef.addChildEventListener(ChatChildEvent(data,adapter, rvChat))
     }
