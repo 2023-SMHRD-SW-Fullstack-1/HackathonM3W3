@@ -25,11 +25,11 @@ class FeedAdapter(var data: ArrayList<FeedVO>, var context: Context) :
         val feed = data[position]
 
         holder.tv_id.text = feed.mb_id
-        holder.tv_content.text = feed.board_title
+        holder.tv_content.text = feed.board_content
         holder.tv_like.text = feed.board_like.toString()
         holder.tv_cost.text = feed.board_cost.toString()
         // 카테고리 TextView 해야함
-        Glide.with(holder.itemView.context).load(feed.board_content).into(holder.img_content)
+        Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
         Glide.with(holder.itemView.context).load(feed.board_like).into(holder.img_like) // 버튼으로 사용해야 함
         Glide.with(holder.itemView.context).load(feed.board_comment).into(holder.img_comment) // 버튼으로 사용해야 함
 

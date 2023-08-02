@@ -2,7 +2,7 @@
 const mysql = require("mysql2");
 
 const db_info = {
-    host : "localhost",
+    host : "172.30.1.23",
     port : "3306",
     user : "fullstack",
     password : "12345",
