@@ -21,6 +21,7 @@ import java.io.ByteArrayOutputStream
 
 class BoardActivity : ProfileActivity() {
 
+
     // 바인딩
     var _binding: ActivityBoardBinding? = null;
     val binding get() = _binding!!;
@@ -118,6 +119,7 @@ class BoardActivity : ProfileActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         setImageView(requestCode, data, binding.boardImg);
+
 
     }
 
