@@ -11,8 +11,9 @@ class ChatChildEvent (var data : ArrayList<ChatVO>, var adapter: ChatAdapter, va
     override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
         var temp : ChatVO? = snapshot.getValue(ChatVO::class.java)
         data.add(temp!!)
+        rvChat.scrollToPosition(data.size-1)
         adapter.notifyDataSetChanged()
-//        rvChat.smoothScrollToPosition(data.size-1)
+
     }
 
     override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
