@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
@@ -33,7 +34,10 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
         holder.tv_cost.text = feed.board_cost.toString()
         holder.tv_category.text = feed.cg_type
 
-        Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
+//        Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
+//        var feedList : FeedVO = data.get(position)
+//        holder.img_content.setImageResource(feedList.board_img!!)
+
 
     }
 
