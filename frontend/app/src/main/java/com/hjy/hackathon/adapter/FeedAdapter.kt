@@ -28,11 +28,10 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val feed = data[position]
 
-        holder.tv_id.text = feed.mb_id
+        holder.tv_nick.text = feed.mb_nick
         holder.tv_content.text = feed.board_content
-        holder.tv_like.text = feed.board_like.toString()
         holder.tv_cost.text = feed.board_cost.toString()
-        holder.tv_category.text = feed.board_title
+        holder.tv_category.text = feed.cg_type
 
         Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
 
