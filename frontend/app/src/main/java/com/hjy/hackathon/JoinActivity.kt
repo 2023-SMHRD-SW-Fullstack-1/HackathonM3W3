@@ -3,12 +3,15 @@ package com.hjy.hackathon
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.hjy.hackathon.databinding.ActivityJoinBinding
+import com.hjy.hackathon.vo.MemberVO
 
 class JoinActivity : ProfileActivity() {
 
@@ -43,30 +46,43 @@ class JoinActivity : ProfileActivity() {
         }
 
         binding.btnJoin.setOnClickListener {
-            val id = binding.etIdJoin.text;
-            val pw = binding.etPwJoin.text;
-            val pw2 = binding.etPw2Join.text;
+            val id = binding.etIdJoin.text.toString();
+            val pw = binding.etPwJoin.text.toString();
+            val pw2 = binding.etPw2Join.text.toString();
+            val nick = binding.etNickJoin.text.toString();
             val img = encodeImgString;
 
-            val request = object : StringRequest(
-                Request.Method.POST,
-                "http://172.30.1.23:8888/member/join",
-                {
-                    response ->
+            if (pw != pw2) {
+                Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+            } else {
+                val request = object : StringRequest(
+                    Request.Method.POST,
+                    "http://172.30.1.28:8888/member/join",
+                    {
+                            response ->
+                        Log.d("response", response.toString());
+                        if (response.toString() == "Success") {
+                            finish();
+                        }
+                    },
+                    {
+                            error ->
+                        Log.d("error", error.toString());
+                    }
+                ){
+                    override fun getParams(): MutableMap<String, String>? {
+                        val params : MutableMap<String, String> = HashMap<String, String>();
 
-                },
-                {
-                    error ->
+                        val member = MemberVO(id, pw, nick, img);
+                        params.put("member", Gson().toJson(member));
+                        return params;
+                    }
                 }
-            ){
-                override fun getParams(): MutableMap<String, String>? {
-                    val params : MutableMap<String, String> = HashMap<String, String>();
 
-//                    val board = BoardVO(null, inputTitle, inputContent, writer, encodeImgString, null);
-//                    params.put("board", Gson().toJson(board));
-                    return params;
-                }
+                reqQueue.add(request);
             }
+
+
         }
     }
 
@@ -74,10 +90,6 @@ class JoinActivity : ProfileActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         setImageView(requestCode, data, binding.ivJoin);
     }
-
-
-
-
 
 
 
