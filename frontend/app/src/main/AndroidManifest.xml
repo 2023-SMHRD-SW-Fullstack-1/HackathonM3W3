@@ -12,6 +12,11 @@
         android:required="true" />
 
     <application
+<<<<<<< HEAD
+=======
+
+        android:usesCleartextTraffic="true"
+>>>>>>> 48dd38babb7808424ea8f4d618a8e9c26c0eaa3f
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -42,15 +47,23 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
+<<<<<<< HEAD
             android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
+=======
+>>>>>>> 48dd38babb7808424ea8f4d618a8e9c26c0eaa3f
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
         </activity>
     </application>
 

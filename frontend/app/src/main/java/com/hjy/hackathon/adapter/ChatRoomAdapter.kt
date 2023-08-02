@@ -9,11 +9,10 @@
 //import android.widget.TextView
 //import androidx.recyclerview.widget.RecyclerView
 //import com.bumptech.glide.Glide
+//import com.google.firebase.database.ktx.database
 //import com.google.firebase.ktx.Firebase
 //import com.google.firebase.storage.ktx.storage
 //import com.hjy.hackathon.R
-//import com.hjy.hackathon.utils.FBAuth
-//import com.hjy.hackathon.utils.FBDatabase
 //import com.hjy.hackathon.vo.ChatRoomVO
 //import com.hjy.hackathon.vo.ChatVO
 //
@@ -98,7 +97,8 @@
 //
 ////메소드 2
 //fun getUserNick(uid: String, tv: TextView, iv: ImageView){
-//    FBDatabase.database.getReference("member").child(uid).get().addOnSuccessListener {
+//
+//    Firebase.database.getReference("member").child(uid).get().addOnSuccessListener {
 //        val item = it.getValue(ChatVO::class.java) as ChatVO
 //        tv.setText(item.uid)
 //        //getImageData(item.uid, iv)

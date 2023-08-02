@@ -576,7 +576,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="의류"
+                    android:text="기타"
                     android:textAlignment="center" />
 
             </LinearLayout>
@@ -597,15 +597,15 @@
 
         <ImageView
             android:id="@+id/board_img"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:textAlignment="gravity"
             app:srcCompat="@drawable/main_img" />
 
         <EditText
-            android:id="@+id/board_memo"
+            android:id="@+id/board_content"
             android:layout_width="wrap_content"
             android:layout_height="130dp"
             android:layout_weight="1"
