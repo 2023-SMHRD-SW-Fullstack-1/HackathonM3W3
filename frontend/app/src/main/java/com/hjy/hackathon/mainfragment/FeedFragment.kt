@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -37,6 +38,8 @@ class FeedFragment : Fragment() {
 
         val data = ArrayList<FeedVO>()
 
+
+        // 가져오기
         val request = object : StringRequest(
             Request.Method.POST,
             "http://172.30.1.28:8888/board/feed",
@@ -50,7 +53,7 @@ class FeedFragment : Fragment() {
                     data.add(feed)
                 }
 
-                val adapter : FeedAdapter = FeedAdapter(requireContext(),R.layout.feed_item ,data)
+                val adapter: FeedAdapter = FeedAdapter(requireContext(), R.layout.feed_item, data)
                 rv_feedList.layoutManager = LinearLayoutManager(requireActivity())
                 rv_feedList.adapter = adapter
 
