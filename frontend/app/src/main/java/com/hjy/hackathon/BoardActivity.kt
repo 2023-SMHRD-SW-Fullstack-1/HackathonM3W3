@@ -94,6 +94,7 @@ open class BoardActivity : ProfileActivity() {
 
     } //onCreate 끝
 
+
 }
 
 

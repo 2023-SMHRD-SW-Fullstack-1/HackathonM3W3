@@ -32,7 +32,7 @@ class PasswordFragment : Fragment() {
 
         binding.btnPw.setOnClickListener {
             if (memberVO.mb_pw == binding.etPwPw.text.toString()) {
-                activity?.supportFragmentManager!!.beginTransaction().replace(R.id.flAccount, ModifyFragment()).commit();
+
             } else {
                 Toast.makeText(requireActivity(), "비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
             }
