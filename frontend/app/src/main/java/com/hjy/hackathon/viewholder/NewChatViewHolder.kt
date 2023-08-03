@@ -5,11 +5,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-<<<<<<< HEAD:frontend/app/src/main/java/com/hjy/hackathon/viewholder/NewChatViewHolder.kt
 import com.hjy.hackathon.R
-=======
-import com.hjy.hackathon.vo.ChatVO
->>>>>>> dcf78fc87afa648f0ecaca6c0e96a239dd739529:frontend/app/src/main/java/com/hjy/hackathon/NewChatViewHolder.kt
 
 class NewChatViewHolder (var itemView : View ) : ViewHolder(itemView){
 
