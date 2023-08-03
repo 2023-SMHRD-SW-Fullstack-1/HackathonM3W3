@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.flLogin.id,
                 LoginFragment()
             ).commit();
-        },0)
+        },3000)
 
     }
 }

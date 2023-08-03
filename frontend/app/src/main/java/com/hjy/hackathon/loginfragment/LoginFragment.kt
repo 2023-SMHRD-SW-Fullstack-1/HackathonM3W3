@@ -38,6 +38,7 @@ class LoginFragment : Fragment() {
         reqQueue = Volley.newRequestQueue(requireActivity());
 
         binding.btnLogin.setOnClickListener {
+            Log.d("asd", "asd");
             val id = binding.etLoginId.text.toString();
             val pw = binding.etLoginPw.text.toString();
 
@@ -51,6 +52,7 @@ class LoginFragment : Fragment() {
                         val spf = requireActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE);
                         val editor = spf.edit();
                         editor.putString("member", response.toString());
+
                         editor.commit();
                         var intent = Intent(requireActivity(), MainActivity::class.java);
 //                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
