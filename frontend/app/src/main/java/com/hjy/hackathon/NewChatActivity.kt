@@ -39,16 +39,11 @@ class NewChatActivity : AppCompatActivity() {
 
         val spf = getSharedPreferences("mySPF", MODE_PRIVATE);
 
-
-
         val member = spf.getString("member", "");
         var memberVO = Gson().fromJson(member, MemberVO::class.java);
 
-
         val database = Firebase.database
         val myRef = database.getReference("message")
-
-
 
         val data = ArrayList<ChatVO>()
 
@@ -62,7 +57,7 @@ class NewChatActivity : AppCompatActivity() {
 //FireBase RealTime DataBase의 Chat경로에 ChatVO class를 setvalue해줌 !
 //            val chat = ChatVO(loginId,msg,myTime(getTime()))
 //            myRef.push().setValue(chat)
-            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),memberVO.mb_id, myTime(getTime()))) // loginId 대신에 checkUid 의 값을 가져오고 싶은대!!! ㅠ
+            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),memberVO.mb_id, myTime(getTime())))
             etChatMsg.text.clear()
         }
 

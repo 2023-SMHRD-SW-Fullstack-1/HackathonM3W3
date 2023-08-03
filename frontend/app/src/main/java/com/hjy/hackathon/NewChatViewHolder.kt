@@ -22,4 +22,6 @@ class NewChatViewHolder (var itemView : View ) : ViewHolder(itemView){
         tvTimeMy = itemView.findViewById(R.id.tvTimeMy)     // 내메세지 전송시간
     }
 
+
+
 }

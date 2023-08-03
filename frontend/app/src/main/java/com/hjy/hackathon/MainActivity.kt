@@ -32,8 +32,10 @@ class MainActivity : AppCompatActivity() {
 
            when(it.itemId){
                R.id.tab1 ->{ // 채팅
-//                   var intent = Intent(this@MainActivity, NewChatActivity::class.java)
-//                   startActivity(intent)
+                   supportFragmentManager.beginTransaction().replace(
+                       binding.fl.id,
+                       ChatListFragment()
+                   ).commit()
                }
                R.id.tab2 ->{ // 피드
                    supportFragmentManager.beginTransaction().replace(

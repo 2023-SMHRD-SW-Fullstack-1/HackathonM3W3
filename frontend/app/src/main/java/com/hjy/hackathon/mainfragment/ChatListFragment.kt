@@ -1,60 +1,107 @@
 package com.hjy.hackathon.mainfragment
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.hjy.hackathon.NewChatActivity
 import com.hjy.hackathon.R
+import com.hjy.hackathon.adapter.ChatRoomAdapter
+import com.hjy.hackathon.onItemClickListener
+import com.hjy.hackathon.vo.ChatRoomVO
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChatListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var rvChatRoom : RecyclerView
+    lateinit var adapter: ChatRoomAdapter
+    val chatList = ArrayList<ChatRoomVO>()
+    val keyData = ArrayList<String>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat_list, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_chat_list, container, false)
+        // fregment_chat_list.xml 파일에 있는 recycleView 가져오기
+
+        rvChatRoom = view.findViewById<RecyclerView>(R.id.rvChatRoom)
+        chatList.add(ChatRoomVO("절약 꿀팁방", "익명아무개", "자허블 사먹으면 혼나나요 ?? ", "오전 9:11"))
+        chatList.add(ChatRoomVO("채찍방(익명혼냄방)", "춘식이", "월급탕진", "오후 5:15"))
+        chatList.add(ChatRoomVO("익명가계부", "루피", "이번달 월급이녹았어요", "오후 7:20"))
+        Log.d("list", chatList.size.toString())
+//        getChatRoomData()
+
+         adapter = ChatRoomAdapter(requireActivity(), chatList , object :
+             onItemClickListener.OnItemClickListener {
+             override fun onItemClick(position: Int) {
+                 var intent = Intent(requireActivity(), NewChatActivity::class.java)
+                 startActivity(intent)
+             }
+         })
+
+        rvChatRoom.layoutManager = LinearLayoutManager(requireActivity())
+        rvChatRoom.adapter = adapter
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ChatListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ChatListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//        adapter.setOnItemClickListener(object : ChatRoomAdapter.onItemClickListener{
+//            override fun onItemClick(view: View, position: Int) {
+//                val intent = Intent(requireContext(),ChatActivity::class.java)
+//                var oppUid = chatList[position].uidOne
+//                if (oppUid == spf)
+//                    oppUid = chatList[position].uidTwo
+//                intent.putExtra("oppUid", oppUid)
+//                intent.putExtra("chatroomKey", keyData[position])
+//
+//                startActivity(intent)
+//            }
+//        })
+
+
+
+
+//    fun getChatRoomData(){
+//        val postListener = object: ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                chatList.clear()
+//                // firebase에서 snapshot으로 데이터를 받아온 경우
+//                for(model in snapshot.children) {
+//                    val item = model.getValue(ChatRoomVO::class.java) as ChatRoomVO
+//                    if(item.uidOne == FBAuth.getUid() || item.uidTwo == FBAuth.getUid()) {
+//                        chatList.add(item)
+//                        keyData.add(model.key.toString())
+//                    }
+//                }
+//                adapter.notifyDataSetChanged()
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                // 오류가 발생했을 때 실행되는 함수
+//            }
+//        }
+//        FBDatabase.database.getReference("chatroom").addValueEventListener(postListener)
+//    }
+
+
+
