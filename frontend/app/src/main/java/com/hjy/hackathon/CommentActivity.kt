@@ -47,8 +47,6 @@ class CommentActivity : AppCompatActivity() {
 
             var intent = Intent(this, MainActivity::class.java);
             intent.putExtra("other", feed.id);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
 
