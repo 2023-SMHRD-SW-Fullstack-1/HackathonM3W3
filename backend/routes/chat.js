@@ -23,5 +23,9 @@ router.post("/rooms", (req, res)=>{
     });
 });
 
+router.post("/start", (req, res)=>{
+    console.log(req);
+})
+
 
 module.exports = router;

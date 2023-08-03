@@ -7,6 +7,29 @@ const router = express.Router();
 const conn = db.init();
 db.connect(conn);
 
+router.post("/", (req, res)=>{
+    console.log(req.body);
+    let {mb_id} = JSON.parse(req.body.member);
+    let sql = "select * from tb_member where mb_id = ?";
+
+    conn.query(sql, [mb_id], function(err, rows, fields){
+        
+        if (err) {
+            console.log(err);
+            res.send("Fail");
+        } else {
+            if(rows.length > 0) {
+                let readFile = fs.readFileSync('public/img/member/'+rows[0].mb_profile+'.jpg'); //이미지 파일 읽기
+                let encode = Buffer.from(readFile).toString('base64'); //파일 인코딩
+                rows[0].mb_profile = encode;
+                res.send(rows[0]);
+            } else {
+                res.send("Fail");
+            }
+        }
+    })
+});
+
 
 router.post("/join", (req, res)=>{
     let {mb_id, mb_pw, mb_nick, mb_profile} = JSON.parse(req.body.member);
