@@ -1,5 +1,6 @@
 package com.hjy.hackathon.mainfragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +10,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import com.hjy.hackathon.NewChatActivity
 import com.hjy.hackathon.R
 import com.hjy.hackathon.adapter.ChatRoomAdapter
 import com.hjy.hackathon.onItemClickListener
 import com.hjy.hackathon.vo.ChatRoomVO
+import com.hjy.hackathon.vo.MemberVO
+import org.json.JSONArray
 
 
 class ChatListFragment : Fragment() {
@@ -23,6 +31,7 @@ class ChatListFragment : Fragment() {
     val chatList = ArrayList<ChatRoomVO>()
     val keyData = ArrayList<String>()
 
+    lateinit var reqQueue: RequestQueue
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,25 +40,56 @@ class ChatListFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_chat_list, container, false)
         // fregment_chat_list.xml 파일에 있는 recycleView 가져오기
+        reqQueue = Volley.newRequestQueue(requireActivity());
+
+        val spf = requireActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE)
+        val strMember = spf.getString("member", "기본값")
+        val memberVO = Gson().fromJson(strMember, MemberVO::class.java)
+        val id = memberVO.mb_id
 
         rvChatRoom = view.findViewById<RecyclerView>(R.id.rvChatRoom)
-        chatList.add(ChatRoomVO("절약 꿀팁방", "익명아무개", "절약하는 꿀정보공유", "오전 9:11"))
-        chatList.add(ChatRoomVO("채찍방(익명혼냄방)", "춘식이", "과소비,Flex 탈탈혼내드림", "오후 5:15"))
-        chatList.add(ChatRoomVO("익명가계부", "루피", "이번달 수입지출", "오후 7:20"))
-        Log.d("list", chatList.size.toString())
-//        getChatRoomData()
 
-         adapter = ChatRoomAdapter(requireActivity(), chatList , object :
-             onItemClickListener.OnItemClickListener {
-             override fun onItemClick(position: Int) {
-                 var intent = Intent(requireActivity(), NewChatActivity::class.java)
-                 intent.putExtra("roomId", chatList[position].uidOne);
-                 startActivity(intent)
-             }
-         })
+        Log.d("id", id.toString());
+        val request = object : StringRequest(
+            Request.Method.GET,
+            "http://172.30.1.9:8888/chat/rooms/" + id,
+            {
+                response ->
+                Log.d("response", response.toString())
+                if (response != "Fail"){
+                    val result = JSONArray(response);
+                    for (i in 0 until result.length()) {
+                        val room = result.getJSONObject(i)
+                        val room2 = ChatRoomVO(room.getInt("room_idx"), room.getString("room_title"), room.getString("room_content"), room.getString("room_at"));
+                        Log.d("room",room2.toString());
+                        chatList.add(room2);
 
-        rvChatRoom.layoutManager = LinearLayoutManager(requireActivity())
-        rvChatRoom.adapter = adapter
+                        adapter = ChatRoomAdapter(requireActivity(), chatList , object :
+                            onItemClickListener.OnItemClickListener {
+                            override fun onItemClick(position: Int) {
+                                var intent = Intent(requireActivity(), NewChatActivity::class.java)
+                                Log.d("idx", chatList[position].idx.toString());
+                                intent.putExtra("roomId", chatList[position].idx);
+                                startActivity(intent)
+                            }
+                        })
+
+                        rvChatRoom.layoutManager = LinearLayoutManager(requireActivity())
+                        rvChatRoom.adapter = adapter
+                }
+                }
+            },
+            {
+                error ->
+                Log.d("error", error.toString())
+            }
+        ){}
+
+        reqQueue.add(request);
+
+
+
+
         return view
     }
 
