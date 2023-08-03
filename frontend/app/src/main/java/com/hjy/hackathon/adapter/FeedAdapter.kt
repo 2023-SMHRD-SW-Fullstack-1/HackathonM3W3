@@ -1,6 +1,7 @@
 package com.hjy.hackathon.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.view.LayoutInflater
@@ -11,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
 import com.bumptech.glide.Glide
+import com.hjy.hackathon.CommentActivity
 import com.hjy.hackathon.R
+import com.hjy.hackathon.vo.SerializableFeed
+import java.io.Serializable
 
 class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<FeedVO>) :
     RecyclerView.Adapter<FeedViewHolder>() {
@@ -50,6 +54,20 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
         holder.tv_content.text = feed.board_content
         holder.tv_cost.text = feed.board_cost.toString()
         holder.tv_category.text = feed.board_cg
+        holder.img_comment.setOnClickListener {
+            val obj = SerializableFeed(
+                feed.mb_profile,
+                feed.board_img,
+                feed.mb_nick,
+                feed.board_content,
+                feed.board_cost.toString(),
+                feed.board_cg
+            )
+            var intent = Intent(context, CommentActivity::class.java);
+            intent.putExtra("feed", obj);
+            context.startActivity(intent);
+        }
+
 
         var i = false;
         holder.img_like.setOnClickListener {
