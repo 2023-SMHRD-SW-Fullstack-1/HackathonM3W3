@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgCRT"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/user"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="2dp"
@@ -20,34 +22,32 @@
 
     <TextView
         android:id="@+id/tvCRTNick"
-        app:layout_constraintStart_toEndOf="@+id/imgCRT"
-        app:layout_constraintTop_toTopOf="@+id/imgCRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="지수"
+        android:layout_marginStart="10dp"
+        android:text="수진"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="6dp" />
+        app:layout_constraintStart_toEndOf="@+id/imgCRT"
+        app:layout_constraintTop_toTopOf="@+id/imgCRT" />
 
     <TextView
         android:id="@+id/tvCRTLastMsg"
-        app:layout_constraintBottom_toBottomOf="@+id/imgCRT"
-        app:layout_constraintStart_toEndOf="@+id/imgCRT"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="식사 맛있게 드세요~"
-        tools:layout_editor_absoluteX="245dp"
-        tools:layout_editor_absoluteY="261dp" />
+        android:layout_marginStart="10dp"
+        android:text="절약꿀팁 공유해주세요~"
+        app:layout_constraintBottom_toBottomOf="@+id/imgCRT"
+        app:layout_constraintStart_toEndOf="@+id/imgCRT" />
 
     <TextView
         android:id="@+id/tvCRTLastMsgTime"
-        app:layout_constraintStart_toEndOf="@+id/tvCRTNick"
-        app:layout_constraintTop_toTopOf="@+id/imgCRT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:text="오후 12:47"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="312dp"
-        tools:layout_editor_absoluteY="39dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
