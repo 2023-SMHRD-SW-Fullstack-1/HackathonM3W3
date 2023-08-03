@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
 import com.bumptech.glide.Glide
+import com.hjy.hackathon.R
 
 class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<FeedVO>) :
     RecyclerView.Adapter<FeedViewHolder>() {
@@ -31,15 +32,17 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         val feed = data[position]
 
-        if (feed.mb_profile != null){
+        if (feed.mb_profile != null) {
             val imageBytesProfile = Base64.decode(feed.mb_profile, 0);
-            val imageProfile = BitmapFactory.decodeByteArray(imageBytesProfile, 0, imageBytesProfile.size);
+            val imageProfile =
+                BitmapFactory.decodeByteArray(imageBytesProfile, 0, imageBytesProfile.size);
             holder.img_profile.setImageBitmap(imageProfile);
         }
 
         if (feed.board_img != null) {
             val imageBytesContent = Base64.decode(feed.board_img, 0);
-            val imageContent = BitmapFactory.decodeByteArray(imageBytesContent, 0, imageBytesContent.size);
+            val imageContent =
+                BitmapFactory.decodeByteArray(imageBytesContent, 0, imageBytesContent.size);
             holder.img_content.setImageBitmap(imageContent);
         }
 
@@ -47,6 +50,18 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
         holder.tv_content.text = feed.board_content
         holder.tv_cost.text = feed.board_cost.toString()
         holder.tv_category.text = feed.board_cg
+
+        var i = false;
+        holder.img_like.setOnClickListener {
+            if (i == true) {
+                holder.img_like.setImageResource(R.drawable.feedunlike)
+                i = false
+            } else {
+                holder.img_like.setImageResource(R.drawable.feedlike)
+                i = true
+            }
+        }
+
 
 //        Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
 //        var feedList : FeedVO = data.get(position)
