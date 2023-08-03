@@ -9,8 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import com.hjy.hackathon.R
-import com.hjy.hackathon.databinding.FragmentMainBinding
 import com.hjy.hackathon.databinding.FragmentModifyBinding
 import com.hjy.hackathon.vo.MemberVO
 

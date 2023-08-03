@@ -9,12 +9,12 @@ import android.util.Log
 import android.widget.TextView
 import com.google.gson.Gson
 import com.hjy.hackathon.databinding.ActivityMainBinding
-
 import com.hjy.hackathon.mainfragment.CalendarFragment
 import com.hjy.hackathon.mainfragment.ChatListFragment
 import com.hjy.hackathon.mainfragment.FeedFragment
 import com.hjy.hackathon.mainfragment.MainFragment
 import com.hjy.hackathon.vo.MemberVO
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,10 +34,10 @@ class MainActivity : AppCompatActivity() {
         binding.tvNickMain.text = memberVO.mb_id;
         binding.ivProfileMain.setImageBitmap(image);
 
-        //MainAcitivty로 전환되자마자 MainFragement 화면 보여주기
+        //MainAcitivty로 전환되자마자 CalenderFragement 화면 보여주기
         supportFragmentManager.beginTransaction().replace(
             R.id.fl,
-            MainFragment()
+            CalendarFragment()
         ).commit()
 
 
@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 
            when(it.itemId){
                R.id.tab1 ->{ // 채팅
-
                    supportFragmentManager.beginTransaction().replace(
                        binding.fl.id,
                        ChatListFragment()
@@ -65,14 +64,11 @@ class MainActivity : AppCompatActivity() {
                R.id.tab4 ->{ // 마이페이지
                    supportFragmentManager.beginTransaction().replace(
                        binding.fl.id,
-                       MainFragment()
+                       CalendarFragment()
                    ).commit()
                }
                R.id.tab5 ->{ // 회원정보수정
-                   supportFragmentManager.beginTransaction().replace(
-                       binding.fl.id,
-                       CalendarFragment()
-                   ).commit()
+
 
                }
 
