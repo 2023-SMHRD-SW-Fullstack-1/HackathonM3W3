@@ -1,6 +1,7 @@
 package com.hjy.hackathon.viewHolder
 
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -13,6 +14,8 @@ class FeedViewHolder(val itemView: View) : ViewHolder(itemView) {
     var tv_category: TextView
     var img_content: ImageView
     var img_profile: ImageView
+    var img_like: ImageView
+    var img_comment: ImageView
 
 
     init {
@@ -22,5 +25,7 @@ class FeedViewHolder(val itemView: View) : ViewHolder(itemView) {
         tv_category = itemView.findViewById(R.id.tv_category)
         img_content = itemView.findViewById(R.id.img_content)
         img_profile = itemView.findViewById(R.id.img_profile)
+        img_like = itemView.findViewById(R.id.img_like)
+        img_comment = itemView.findViewById(R.id.img_comment)
     }
 }
