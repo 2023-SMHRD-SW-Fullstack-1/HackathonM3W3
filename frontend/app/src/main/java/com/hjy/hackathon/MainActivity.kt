@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val imageBytes = Base64.decode(memberVO.mb_profile, 0)
         val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
 
-        binding.tvIdMain.text = memberVO.mb_id;
+        binding.tvNickMain.text = memberVO.mb_id;
         binding.ivProfileMain.setImageBitmap(image);
 
         //MainAcitivty로 전환되자마자 MainFragement 화면 보여주기
@@ -45,10 +45,12 @@ class MainActivity : AppCompatActivity() {
 
            when(it.itemId){
                R.id.tab1 ->{ // 채팅
+
                    supportFragmentManager.beginTransaction().replace(
                        binding.fl.id,
                        ChatListFragment()
                    ).commit()
+
                }
                R.id.tab2 ->{ // 피드
                    supportFragmentManager.beginTransaction().replace(

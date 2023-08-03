@@ -1,11 +1,13 @@
 package com.hjy.hackathon.viewholder
 
-import android.view.Gravity
+
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.hjy.hackathon.R
+
+
+
 
 class NewChatViewHolder (var itemView : View ) : ViewHolder(itemView){
 
