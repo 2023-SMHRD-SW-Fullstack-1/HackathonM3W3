@@ -25,7 +25,7 @@ router.post("/join", (req, res)=>{
             res.send("Success");
         }
     })
-})
+});
 
 
 
@@ -47,6 +47,25 @@ router.post("/login", (req, res)=>{
             } else {
                 res.send("Fail");
             }
+        }
+    })
+});
+
+router.post("/update", (req, res)=>{
+    let {mb_id, mb_pw, mb_nick, mb_profile} = JSON.parse(req.body.member);
+
+    let decode = Buffer.from(mb_profile, "base64");
+    const uuid = uuidv4();
+    fs.writeFileSync("public/img/member/" + uuid + ".jpg", decode);
+
+    let sql = "update tb_member set mb_pw = ?, mb_nick = ?, mb_profile = ? where mb_id = ?";
+
+    conn.query(sql, [mb_pw, mb_nick, uuid, mb_id], function(err, rows, fields){
+        if (err) {
+            console.log(err);
+            res.send("Fail");
+        } else {
+            res.send("Success");
         }
     })
 });
