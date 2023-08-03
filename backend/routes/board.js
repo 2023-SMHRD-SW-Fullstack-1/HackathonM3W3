@@ -1,24 +1,32 @@
 const express = require("express");
 const db = require("../config/database");
+const fs = require("fs");
 const router = express.Router();
 
 const conn = db.init();
 db.connect(conn);
 
-router.get("/feed", (req, res)=>{
+router.post("/feed", (req, res)=>{
 
-    let sql = "select * from tb_board";
+    let sql = "select A.*, B.mb_nick, B.mb_profile from tb_board as A inner join tb_member as B on A.mb_id = B.mb_id";
 
     conn.query(sql, function(err, rows, fields){
-        let readFile = fs.readFileSync('public/img/member/'+rows[0].mb_profile+'.jpg'); //이미지 파일 읽기
-        let encode = Buffer.from(readFile).toString('base64'); //파일 인코딩
-        rows[0].mb_profile = encode;
+        for (let i = 0; i < rows.length; i++){
+            let readFileP = fs.readFileSync('public/img/member/'+rows[i].mb_profile+'.jpg');
+            let encodeP = Buffer.from(readFileP).toString('base64');
+            rows[i].mb_profile = encodeP;
+
+            let readFileB = fs.readFileSync('public/img/member/'+rows[i].board_img+'.jpg');
+            let encodeB = Buffer.from(readFileB).toString('base64');
+            rows[i].board_img = encodeB;
+        }
+        
         if (err) {
             console.log(err);
             res.send("Fail");
         } else {
             if(rows.length > 0) {
-                res.send(rows[0]);
+                res.send(rows);
             } else {
                 res.send("Fail");
             }
