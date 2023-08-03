@@ -10,21 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12634b50-c981-48cf-9288-042de30e06a2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/NewChatViewHolder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/BoardActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/BoardActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/ChatChildEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/ChatChildEvent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/NewChatActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/NewChatActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/adapter/ChatAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/adapter/ChatAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/adapter/ChatRoomAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/adapter/ChatRoomAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/adapter/FeedAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/adapter/FeedAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/loginfragment/LoginFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/loginfragment/LoginFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/mainfragment/FeedFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/mainfragment/FeedFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/utils/FBAuth.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/utils/FBDatabase.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/res/layout/activity_board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/res/layout/activity_board.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/mainfragment/CalendarFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/java/com/hjy/hackathon/mainfragment/CalendarFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/app/src/main/res/layout/fragment_calendar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/app/src/main/res/layout/fragment_calendar.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/SMHRD/AndroidStudioProjects/Hackathon/frontend",
+    "last_opened_file_path": "C:/Users/SMHRD/AndroidStudioProjects/hackathon",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>

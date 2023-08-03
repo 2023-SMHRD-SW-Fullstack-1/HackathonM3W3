@@ -94,18 +94,6 @@ open class BoardActivity : ProfileActivity() {
 
     } //onCreate 끝
 
-<<<<<<< HEAD
-=======
-
-    // 사진 불러오기
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        setImageView(requestCode, data, binding.boardImg);
-
-
-    }
-
->>>>>>> dcf78fc87afa648f0ecaca6c0e96a239dd739529
 }
 
 
