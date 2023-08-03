@@ -73,7 +73,7 @@ class BoardSecondActivity : ProfileActivity() {
 
             val request = object : StringRequest(
                 Request.Method.POST,
-                "http://172.30.1.7:8888/board/write",
+                "http://172.30.1.28:8888/board/write",
                 { response ->
                     Log.d("response", response.toString())
                     var intent = Intent(this, MainActivity::class.java)
