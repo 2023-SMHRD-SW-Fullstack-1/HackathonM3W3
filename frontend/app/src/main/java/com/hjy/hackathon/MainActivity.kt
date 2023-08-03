@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import com.hjy.hackathon.databinding.ActivityMainBinding
+
 import com.hjy.hackathon.mainfragment.CalendarFragment
 import com.hjy.hackathon.mainfragment.ChatListFragment
 import com.hjy.hackathon.mainfragment.FeedFragment
@@ -32,10 +33,12 @@ class MainActivity : AppCompatActivity() {
 
            when(it.itemId){
                R.id.tab1 ->{ // 채팅
+
                    supportFragmentManager.beginTransaction().replace(
                        binding.fl.id,
                        ChatListFragment()
                    ).commit()
+
                }
                R.id.tab2 ->{ // 피드
                    supportFragmentManager.beginTransaction().replace(
