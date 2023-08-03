@@ -100,4 +100,5 @@ open class ProfileActivity : AppCompatActivity() {
         encodeBitmapImg(resized);
     }
 
+
 }

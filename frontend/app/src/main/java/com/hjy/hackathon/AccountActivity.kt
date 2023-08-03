@@ -69,6 +69,7 @@ class AccountActivity : ProfileActivity() {
             val pw = binding.etPwAccount.text.toString();
             val pw2 = binding.etPw2Account.text.toString();
             val img = if (encodeImgString == null) memberVO.mb_profile else encodeImgString;
+            val member = MemberVO(id, pw, nick, img);
             if (pw == pw2) {
                 val request = object : StringRequest(
                     Request.Method.POST,
@@ -77,9 +78,14 @@ class AccountActivity : ProfileActivity() {
                             response ->
                         Log.d("response", response.toString());
                         if (response.toString() == "Success") {
-                            val m = Gson().toJson(memberVO);
+                            val m = Gson().toJson(member);
                             editor.putString("member", m);
                             editor.commit();
+
+                            var intent = Intent(this, MainActivity::class.java);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                         }
                     },
                     {
@@ -90,7 +96,6 @@ class AccountActivity : ProfileActivity() {
                     override fun getParams(): MutableMap<String, String>? {
                         val params : MutableMap<String, String> = HashMap<String, String>();
 
-                        val member = MemberVO(id, pw, nick, img);
                         params.put("member", Gson().toJson(member));
                         return params;
                     }

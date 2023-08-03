@@ -33,9 +33,9 @@ class ChatListFragment : Fragment() {
         // fregment_chat_list.xml 파일에 있는 recycleView 가져오기
 
         rvChatRoom = view.findViewById<RecyclerView>(R.id.rvChatRoom)
-        chatList.add(ChatRoomVO("절약 꿀팁방", "익명아무개", "자허블 사먹으면 혼나나요 ?? ", "오전 9:11"))
-        chatList.add(ChatRoomVO("채찍방(익명혼냄방)", "춘식이", "월급탕진", "오후 5:15"))
-        chatList.add(ChatRoomVO("익명가계부", "루피", "이번달 월급이녹았어요", "오후 7:20"))
+        chatList.add(ChatRoomVO("절약 꿀팁방", "익명아무개", "절약하는 꿀정보공유", "오전 9:11"))
+        chatList.add(ChatRoomVO("채찍방(익명혼냄방)", "춘식이", "과소비,Flex 탈탈혼내드림", "오후 5:15"))
+        chatList.add(ChatRoomVO("익명가계부", "루피", "이번달 수입지출", "오후 7:20"))
         Log.d("list", chatList.size.toString())
 //        getChatRoomData()
 
@@ -43,6 +43,7 @@ class ChatListFragment : Fragment() {
              onItemClickListener.OnItemClickListener {
              override fun onItemClick(position: Int) {
                  var intent = Intent(requireActivity(), NewChatActivity::class.java)
+                 intent.putExtra("roomId", chatList[position].uidOne);
                  startActivity(intent)
              }
          })
