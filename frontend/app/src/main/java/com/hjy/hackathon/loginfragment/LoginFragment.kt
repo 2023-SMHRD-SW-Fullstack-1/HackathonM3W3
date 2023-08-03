@@ -51,6 +51,7 @@ class LoginFragment : Fragment() {
                         val spf = requireActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE);
                         val editor = spf.edit();
                         editor.putString("member", response.toString());
+
                         editor.commit();
                         binding.etLoginId.text = null;
                         binding.etLoginPw.text = null;

@@ -6,8 +6,7 @@ import android.view.View
 import com.hjy.hackathon.vo.ChatVO
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import com.hjy.hackathon.NewChatViewHolder
-import com.hjy.hackathon.R
+import com.hjy.hackathon.viewholder.NewChatViewHolder
 
 import androidx.recyclerview.widget.RecyclerView.Adapter
 
@@ -30,6 +29,7 @@ class ChatAdapter (val context : Context, var template : Int , val data:ArrayLis
         holder.tvTimeOpp.setText(data[position].time)
         holder.tvMsgMy.setText(data[position].msg)
         holder.tvTimeMy.setText(data[position].time)
+
         // 나의 채팅과 상대방 채팅
         if(data[position].uid == id){
             holder.tvMsgOpp.visibility = View.GONE
@@ -42,6 +42,8 @@ class ChatAdapter (val context : Context, var template : Int , val data:ArrayLis
 //            holder.tvMsgOpp.isVisible = true
 //            holder.tvTimeOpp.isVisible = true
         }
+
+
 
             }
     }
