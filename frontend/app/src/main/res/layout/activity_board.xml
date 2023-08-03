@@ -628,7 +628,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/boardGallery"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="5dp"
@@ -637,7 +637,7 @@
             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <ImageView
-            android:id="@+id/imageView13"
+            android:id="@+id/boardCamera"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="5dp"
