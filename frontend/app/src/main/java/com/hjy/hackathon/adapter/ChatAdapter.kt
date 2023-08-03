@@ -6,8 +6,7 @@ import android.view.View
 import com.hjy.hackathon.vo.ChatVO
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import com.hjy.hackathon.NewChatViewHolder
-import com.hjy.hackathon.R
+import com.hjy.hackathon.viewholder.NewChatViewHolder
 
 import androidx.recyclerview.widget.RecyclerView.Adapter
 

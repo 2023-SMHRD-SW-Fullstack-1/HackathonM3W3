@@ -10,13 +10,13 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -37,8 +37,46 @@
             android:textAlignment="textEnd"
             android:textColor="#0081B5"
             android:textColorHint="#0081B5"
-            android:textSize="40sp" />
+            android:textSize="38sp" />
 
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5">
+
+        <TextView
+            android:id="@+id/board_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:text="현재날짜"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#0081B5"
+            android:text="날짜선택"
+            app:cornerRadius="10dp" />
     </LinearLayout>
 
     <TableLayout
@@ -46,14 +84,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
@@ -66,24 +104,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#85CD97"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img1"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#85CD97"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#85CD97"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_rice" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv21"
+                    android:id="@+id/cg1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -99,24 +139,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#E37375"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img2"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#E37375"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#E37375"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_bus" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv24"
+                    android:id="@+id/cg2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -133,25 +175,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#D8798F"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img3"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#D8798F"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#D8798F"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_music" />
-
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv26"
+                    android:id="@+id/cg3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -168,24 +211,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#DE9367"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img4"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#DE9367"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#DE9367"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_shopping" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView28"
+                    android:id="@+id/cg4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -202,24 +247,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#84CAD2"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img5"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#84CAD2"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#84CAD2"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_shirt" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView30"
+                    android:id="@+id/cg5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -243,24 +290,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#DE6585"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img6"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#DE6585"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#DE6585"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_beauty" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv32"
+                    android:id="@+id/cg6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -276,24 +325,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#7CB68B"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img7"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#7CB68B"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#7CB68B"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_hospital" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv34"
+                    android:id="@+id/cg7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -310,25 +361,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#96809B"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img8"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#96809B"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#96809B"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_book" />
-
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv36"
+                    android:id="@+id/cg8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -345,24 +397,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#E5D87D"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img9"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#E5D87D"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#E5D87D"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_phone" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView38"
+                    android:id="@+id/cg9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -379,24 +433,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#78AEB3"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img10"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#78AEB3"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#78AEB3"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_people" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView40"
+                    android:id="@+id/cg10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -419,24 +475,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#5EC6A7"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img11"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#5EC6A7"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#5EC6A7"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_wedding" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv1"
+                    android:id="@+id/cg11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -452,24 +510,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#E0CB74"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img12"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#E0CB74"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#E0CB74"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_pig" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv2"
+                    android:id="@+id/cg12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -486,25 +546,27 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#78C0CA"
+                    android:clickable="true"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img13"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#78C0CA"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#78C0CA"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_computer" />
-
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/tv5"
+                    android:id="@+id/cg13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -521,24 +583,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#8787C3"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img14"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#8787C3"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#8787C3"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_plug" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/cg14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -555,24 +619,26 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
+                    android:alpha="1"
                     android:backgroundTint="#C0617A"
                     app:cardCornerRadius="50dp">
 
-                    <ImageView
+                    <ImageButton
                         android:id="@+id/img15"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_margin="15dp"
-                        android:background="#C0617A"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#C0617A"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/main_card" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView10"
+                    android:id="@+id/cg15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -583,78 +649,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
-
-        <ImageView
-            android:id="@+id/board_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:textAlignment="gravity"
-            app:srcCompat="@drawable/main_img" />
-
-        <EditText
-            android:id="@+id/board_content"
-            android:layout_width="wrap_content"
-            android:layout_height="130dp"
-            android:layout_weight="1"
-            android:background="@drawable/memo_border"
-            android:ems="10"
-            android:gravity="top"
-            android:inputType="text|textMultiLine"
-            android:padding="5dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <ImageView
-            android:id="@+id/boardGallery"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="#E8F1F4"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-        <ImageView
-            android:id="@+id/boardCamera"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="#E8F1F4"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="글작성"
-        app:cornerRadius="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
