@@ -35,9 +35,10 @@
 
     <ImageView
         android:id="@+id/img_content"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,16 +65,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/img_comment"
         app:layout_constraintEnd_toStartOf="@+id/img_comment"
         app:layout_constraintTop_toTopOf="@+id/img_comment"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/heartout" />
 
     <ImageView
         android:id="@+id/img_comment"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_category"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
@@ -87,7 +87,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_content" />
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/tv_content"
@@ -99,5 +99,12 @@
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/tv_category"
         app:layout_constraintTop_toBottomOf="@+id/tv_cost" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="480dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

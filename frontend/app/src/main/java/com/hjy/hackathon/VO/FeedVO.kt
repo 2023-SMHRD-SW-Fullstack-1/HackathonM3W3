@@ -5,7 +5,7 @@ data class FeedVO(
     var board_img: String?,
     var mb_nick : String?,
     var board_cost : Int?,
-    var cg_type : String?,
+    var board_cg : String?,
     var mb_profile : String?
 
 )
