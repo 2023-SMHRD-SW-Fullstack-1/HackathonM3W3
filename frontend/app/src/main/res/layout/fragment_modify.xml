@@ -35,14 +35,14 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/ibCameraAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@android:drawable/ic_menu_camera" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/ibGalleryAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnModiftAct"
+        android:id="@+id/btnModify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원정보 수정"
@@ -59,13 +59,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
 
     <Button
-        android:id="@+id/btnResignAct"
+        android:id="@+id/btnResign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원탈퇴"
-        app:layout_constraintEnd_toEndOf="@+id/btnModiftAct"
-        app:layout_constraintStart_toStartOf="@+id/btnModiftAct"
-        app:layout_constraintTop_toBottomOf="@+id/btnModiftAct" />
+        app:layout_constraintEnd_toEndOf="@+id/btnModify"
+        app:layout_constraintStart_toStartOf="@+id/btnModify"
+        app:layout_constraintTop_toBottomOf="@+id/btnModify" />
 
     <TableLayout
         android:id="@+id/tableLayout3"
@@ -88,7 +88,7 @@
                 android:text="아이디" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvIdAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal|center_vertical"
@@ -107,7 +107,7 @@
                 android:text="닉네임" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/etNickAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -127,7 +127,7 @@
                 android:text="비밀번호" />
 
             <EditText
-                android:id="@+id/editTextTextPassword2"
+                android:id="@+id/etPwAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -147,7 +147,7 @@
                 android:text="비밀번호 확인" />
 
             <EditText
-                android:id="@+id/editTextTextPassword3"
+                android:id="@+id/etPw2Account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
