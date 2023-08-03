@@ -37,8 +37,8 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
             holder.img_profile.setImageBitmap(imageProfile);
         }
 
-        if (feed.board_content != null) {
-            val imageBytesContent = Base64.decode(feed.board_content, 0);
+        if (feed.board_img != null) {
+            val imageBytesContent = Base64.decode(feed.board_img, 0);
             val imageContent = BitmapFactory.decodeByteArray(imageBytesContent, 0, imageBytesContent.size);
             holder.img_content.setImageBitmap(imageContent);
         }

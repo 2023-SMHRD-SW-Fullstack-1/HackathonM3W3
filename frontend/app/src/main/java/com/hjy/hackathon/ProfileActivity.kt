@@ -18,7 +18,7 @@ open class ProfileActivity : AppCompatActivity() {
     val STORAGE_PERMISSION_CODE = 1000;
     val CAMERA_PERMISSION_CODE = 2000;
 
-    protected lateinit var encodeImgString : String;
+    var encodeImgString : String? = null;
 
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>,
