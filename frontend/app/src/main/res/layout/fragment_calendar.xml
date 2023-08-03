@@ -14,8 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.754">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_content"
@@ -98,11 +97,11 @@
         android:text="지출   "
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/tv_total"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tv_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="361,529"
@@ -118,8 +117,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:text=" 원"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_total"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        app:layout_constraintTop_toTopOf="@+id/tv_total" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
