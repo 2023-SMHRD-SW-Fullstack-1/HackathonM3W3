@@ -31,6 +31,7 @@ import java.util.GregorianCalendar
 //ProfileActivity 상속
 open class BoardActivity : ProfileActivity() {
 
+
     // 바인딩
     var _binding: ActivityBoardBinding? = null;
     val binding get() = _binding!!;
@@ -93,6 +94,18 @@ open class BoardActivity : ProfileActivity() {
 
     } //onCreate 끝
 
+<<<<<<< HEAD
+=======
+
+    // 사진 불러오기
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        setImageView(requestCode, data, binding.boardImg);
+
+
+    }
+
+>>>>>>> dcf78fc87afa648f0ecaca6c0e96a239dd739529
 }
 
 

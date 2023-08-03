@@ -25,23 +25,26 @@ class ChatAdapter (val context : Context, var template : Int , val data:ArrayLis
     }
 
     override fun onBindViewHolder(holder: NewChatViewHolder, position: Int) {
+        holder.tvMsgOpp.setText(data[position].msg)
+        holder.tvTimeOpp.setText(data[position].time)
+        holder.tvMsgMy.setText(data[position].msg)
+        holder.tvTimeMy.setText(data[position].time)
 
-//        var time = FBAuth.myTime(data[position].time)
-
+        // 나의 채팅과 상대방 채팅
         if(data[position].uid == id){
-            holder.tvMsgMy.setText(data[position].msg)
-            holder.tvTimeMy.setText(data[position].time)
-            holder.tvMsgOpp.isVisible = false
-            holder.tvTimeOpp.isVisible = false
+            holder.tvMsgOpp.visibility = View.GONE
+            holder.tvTimeOpp.visibility = View.GONE
             holder.tvMsgMy.isVisible = true
             holder.tvTimeMy.isVisible = true
         } else {
-            holder.tvMsgOpp.setText(data[position].msg)
-            holder.tvTimeOpp.setText(data[position].time)
-            holder.tvMsgMy.isVisible = false
-            holder.tvTimeMy.isVisible = false
-            holder.tvMsgOpp.isVisible = true
-            holder.tvTimeOpp.isVisible = true
+            holder.tvMsgMy.visibility = View.GONE
+            holder.tvTimeMy.visibility = View.GONE
+//            holder.tvMsgOpp.isVisible = true
+//            holder.tvTimeOpp.isVisible = true
         }
+
+
+
+            }
     }
-}
+

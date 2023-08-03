@@ -17,22 +17,28 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
+import com.google.firebase.auth.FirebaseAuth
+
 //채팅방 여기서 작업할게요~~
 class NewChatActivity : AppCompatActivity() {
 
     lateinit var rvChat : RecyclerView
     lateinit var btnChatSend : Button
     lateinit var etChatMsg: EditText
+    private val auth = FirebaseAuth.getInstance() //추가
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_chat)
 
+
         rvChat = findViewById(R.id.rvChat)
         btnChatSend = findViewById(R.id.btnChatSend)
         etChatMsg = findViewById(R.id.etChatMsg)
 
+
         val spf = getSharedPreferences("mySPF", MODE_PRIVATE);
+
         val member = spf.getString("member", "");
         var memberVO = Gson().fromJson(member, MemberVO::class.java);
 
@@ -46,15 +52,36 @@ class NewChatActivity : AppCompatActivity() {
         rvChat.adapter=adapter
 
         btnChatSend.setOnClickListener {
+            val  msg = etChatMsg.text.toString()
 
-            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),"수진", myTime(getTime())))
-
-
+//FireBase RealTime DataBase의 Chat경로에 ChatVO class를 setvalue해줌 !
+//            val chat = ChatVO(loginId,msg,myTime(getTime()))
+//            myRef.push().setValue(chat)
+            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),memberVO.mb_id, myTime(getTime())))
             etChatMsg.text.clear()
         }
 
        myRef.addChildEventListener(ChatChildEvent(data,adapter, rvChat))
     }
+
+    // id 가져오기
+    private fun getCurrentUserId(): String {
+        val user = auth.currentUser
+        return user?.uid ?: "" // 사용자가 로그인하지 않은 경우 빈 문자열 반환
+    }
+
+    // 아이디 비교하기
+    /**사용자uid와 targetUid 비교
+     * @return Boolean*/
+
+    fun checkUid(targetUid: String): Boolean {
+        val userUid = getCurrentUserId()
+        Log.d("check", "사용자uid: $userUid, targetUid: $targetUid")
+        return targetUid == userUid
+    }
+
+
+
 
     fun getTime(): String {
         // Calendar 객체는 getInstance() 메소드로 객체를 생성한다
@@ -66,6 +93,7 @@ class NewChatActivity : AppCompatActivity() {
 
         return time
     }
+
 
     /**시간을 오후 9:13같은 형식으로 바꿔준다*/
     fun myTime(time: String): String {
@@ -84,17 +112,6 @@ class NewChatActivity : AppCompatActivity() {
             timeResult += "오전 " + time.substring(12, 16)
         return timeResult
     }
-
-//    // 아이디 비교하기
-//
-//    /**사용자uid와 targetUid 비교
-//     * @return Boolean*/
-//    fun checkUid(targetUid: String): Boolean {
-//        val userUid = FBAuth.getUid()
-//        Log.d("check", " 사용자uid: $userUid, targetUid: $targetUid")
-//        return targetUid == userUid
-//    }
-
 
 
 
