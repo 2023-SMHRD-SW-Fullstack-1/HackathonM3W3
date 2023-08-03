@@ -2,7 +2,6 @@ const express = require("express");
 const {v4:uuidv4} =require('uuid')
 const fs = require('fs')
 const db = require("../config/database");
-const fs = require("fs");
 const router = express.Router();
 
 const conn = db.init();
@@ -18,7 +17,7 @@ router.post("/feed", (req, res)=>{
             let encodeP = Buffer.from(readFileP).toString('base64');
             rows[i].mb_profile = encodeP;
 
-            let readFileB = fs.readFileSync('public/img/member/'+rows[i].board_img+'.jpg');
+            let readFileB = fs.readFileSync('public/img/board/'+rows[i].board_img+'.jpg');
             let encodeB = Buffer.from(readFileB).toString('base64');
             rows[i].board_img = encodeB;
         }
