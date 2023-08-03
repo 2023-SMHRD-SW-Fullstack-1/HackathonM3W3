@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import com.hjy.hackathon.databinding.ActivityMainBinding
+
 import com.hjy.hackathon.mainfragment.CalendarFragment
 import com.hjy.hackathon.mainfragment.ChatListFragment
 import com.hjy.hackathon.mainfragment.FeedFragment

@@ -12,7 +12,7 @@ class MainViewHolder (var itemView : View) : ViewHolder(itemView){
     var tv_cgCost : TextView
 
     init {
-        Img_cg = itemView.findViewById(R.id.Img_cg)
+        Img_cg = itemView.findViewById(R.id.img_profile)
         tv_cgType = itemView.findViewById(R.id.tv_cgType)
         tv_cgCost = itemView.findViewById(R.id.tv_cgCost)
     }

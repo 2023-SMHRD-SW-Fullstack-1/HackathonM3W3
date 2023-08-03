@@ -1,15 +1,26 @@
 package com.hjy.hackathon
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64
+import android.util.Log
+import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
+import com.android.volley.Request
 import com.android.volley.RequestQueue
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import com.hjy.hackathon.databinding.ActivityBoardBinding
+import com.hjy.hackathon.vo.BoardVO
+import java.io.ByteArrayOutputStream
 
 
 class BoardActivity : ProfileActivity() {
+
 
     // 바인딩
     var _binding: ActivityBoardBinding? = null;
@@ -37,7 +48,8 @@ class BoardActivity : ProfileActivity() {
             categorys[index] = index + 1
 
             btns[index]!!.setOnClickListener {
-                category = categorys[index]!!
+                btns[index]!!.alpha = 0.5f       //불투명도
+                category = categorys[index]!!   //카테고리에 번호 부여
             }
         } // for문 끝
 
@@ -61,34 +73,55 @@ class BoardActivity : ProfileActivity() {
 
 
         //게시물등록버튼
-        binding.button.setOnClickListener{
+        binding.button.setOnClickListener {
 
-            //카테고리 선택 안했을 시
-            if(category==0){
+            if (category == 0) {// 카테고리 선택 안했을 시
+                Toast.makeText(this@BoardActivity, "카테고리를 선택해주세요", Toast.LENGTH_SHORT).show()
+            } else {  // 서버로 넘기기
 
-            }else{
-                // 서버로 넘기기
+                //입력한 값 가져오기
+                var inputCost = binding.boardCost.toString().toInt()
+                var inputCg = category
+                var inputImg = encodeImgString
+                var inputContent = binding.boardContent.toString()
 
+                //요청
+                val request = object : StringRequest(
+                    Request.Method.POST,
+                    "http://172.30.1.23:8888/board/write",
+                    { response ->
+                        Log.d("response", response.toString())
+                        var intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    }, { error ->
+                        Log.d("error", error.toString())
+                    }
+                ) {
+                    override fun getParams(): MutableMap<String, String>? {
 
-            }
+                        val params: MutableMap<String, String> = HashMap<String, String>()
+                        val board = BoardVO(inputCost, inputCg, inputImg, inputContent)
+                        params.put("board", Gson().toJson(board))
+                        return params
 
+                    } //getParams 끝
+
+                } // request 끝
+
+            } // else문 끝
 
         }
 
-
-
-
-
     } //onCreate 끝
-
 
 
     // 사진 불러오기
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         setImageView(requestCode, data, binding.boardImg);
-    }
 
+
+    }
 
 }
 
