@@ -42,8 +42,10 @@ class NewChatActivity : AppCompatActivity() {
         val member = spf.getString("member", "");
         var memberVO = Gson().fromJson(member, MemberVO::class.java);
 
+
+        val roomId = intent.getStringExtra("roomId");
         val database = Firebase.database
-        val myRef = database.getReference("message")
+        val myRef = database.getReference(roomId!!)
 
         val data = ArrayList<ChatVO>()
 
