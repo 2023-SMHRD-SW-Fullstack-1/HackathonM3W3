@@ -1,5 +1,6 @@
 package com.hjy.hackathon.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -8,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
@@ -17,7 +20,7 @@ import com.hjy.hackathon.R
 import com.hjy.hackathon.vo.SerializableFeed
 import java.io.Serializable
 
-class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<FeedVO>) :
+class FeedAdapter(var context: Activity, var template: Int, var data: ArrayList<FeedVO>) :
     RecyclerView.Adapter<FeedViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
 
@@ -56,6 +59,7 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
         holder.tv_category.text = feed.board_cg
         holder.img_comment.setOnClickListener {
             val obj = SerializableFeed(
+                feed.mb_id,
                 feed.mb_profile,
                 feed.board_img,
                 feed.mb_nick,
@@ -81,11 +85,13 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
         }
 
 
+
 //        Glide.with(holder.itemView.context).load(feed.board_img).into(holder.img_content)
 //        var feedList : FeedVO = data.get(position)
 //        holder.img_content.setImageResource(feedList.board_img!!)
 
 
     }
+
 
 }

@@ -12,7 +12,6 @@ import com.hjy.hackathon.databinding.ActivityMainBinding
 import com.hjy.hackathon.mainfragment.CalendarFragment
 import com.hjy.hackathon.mainfragment.ChatListFragment
 import com.hjy.hackathon.mainfragment.FeedFragment
-import com.hjy.hackathon.mainfragment.MainFragment
 import com.hjy.hackathon.vo.MemberVO
 
 

@@ -1,5 +1,6 @@
 package com.hjy.hackathon
 
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -40,6 +41,15 @@ class CommentActivity : AppCompatActivity() {
             val imageBytesContent = Base64.decode(feed.img, 0);
             val imageContent = BitmapFactory.decodeByteArray(imageBytesContent, 0, imageBytesContent.size);
             ivBoard.setImageBitmap(imageContent);
+        }
+
+        ivProfile.setOnClickListener {
+
+            var intent = Intent(this, MainActivity::class.java);
+            intent.putExtra("other", feed.id);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
 
     }
