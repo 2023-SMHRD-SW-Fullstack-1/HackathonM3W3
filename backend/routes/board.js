@@ -2,7 +2,6 @@ const express = require("express");
 const {v4:uuidv4} =require('uuid')
 const fs = require('fs')
 const db = require("../config/database");
-const fs = require("fs");
 const router = express.Router();
 
 const conn = db.init();
