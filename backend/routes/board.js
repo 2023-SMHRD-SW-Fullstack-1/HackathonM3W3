@@ -61,4 +61,19 @@ router.post('/write', (req, res)=>{
 })
 
 
+// 좋아요 누르면 DB의 tb_like테이블에 insert됨
+router.get('/like', (req, res) => {
+    let {mb_id, board_idx} = JSON.parse(req.body.board)
+    let sql = "insert into tb_like (mb_id, board_idx) value (?,?)"
+    conn.query(sql,[mb_id, board_idx], (err, rows) => {
+        if (err) {
+            console.log(err)
+            res.send('Fail')
+        } else {
+            res.send('Success')
+        }
+    })
+})
+
+
 module.exports = router;

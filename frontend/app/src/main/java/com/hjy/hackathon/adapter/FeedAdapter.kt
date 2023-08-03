@@ -3,11 +3,14 @@ package com.hjy.hackathon.adapter
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
 import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
 import com.bumptech.glide.Glide
@@ -56,6 +59,17 @@ class FeedAdapter(var context: Context, var template: Int, var data: ArrayList<F
             if (i == true) {
                 holder.img_like.setImageResource(R.drawable.feedunlike)
                 i = false
+                var request = object : StringRequest(
+                    Request.Method.POST,
+                    "http://172.30.1.28:8888/board/like",
+                    { response ->
+                        Log.d("response", response.toString())
+
+                    },
+                    { error ->
+                        Log.d("error", error.toString())
+                    }
+                ) {}
             } else {
                 holder.img_like.setImageResource(R.drawable.feedlike)
                 i = true
