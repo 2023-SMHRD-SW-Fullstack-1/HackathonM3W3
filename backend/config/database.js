@@ -2,11 +2,11 @@
 const mysql = require("mysql2");
 
 const db_info = {
-    host : "172.30.1.23",
-    port : "3306",
-    user : "fullstack",
-    password : "12345",
-    database : "boot"
+    host : "project-db-campus.smhrd.com",
+    port : "3307",
+    user : "campus_23SW_FS_hack_4",
+    password : "smhrd4",
+    database : "campus_23SW_FS_hack_4"
 };
 
 // db 연결 -> 함수 (초기화, 연결)

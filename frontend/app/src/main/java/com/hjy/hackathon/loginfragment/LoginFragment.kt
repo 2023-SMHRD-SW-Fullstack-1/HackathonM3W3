@@ -52,6 +52,7 @@ class LoginFragment : Fragment() {
                         val spf = requireActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE);
                         val editor = spf.edit();
                         editor.putString("member", response.toString());
+
                         editor.commit();
                         var intent = Intent(requireActivity(), MainActivity::class.java);
 //                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
