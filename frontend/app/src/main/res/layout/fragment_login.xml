@@ -7,16 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".loginfragment.LoginFragment">
 
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/pyeong"
+        android:text="Blind Piggy Bank"
+        android:textColor="#020202"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ivLogin"
+        app:layout_constraintStart_toStartOf="@+id/ivLogin"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogin" />
+
     <EditText
         android:id="@+id/etLoginId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="아이디"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/ivLogin"
-        app:layout_constraintStart_toStartOf="@+id/ivLogin"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogin" />
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
         android:id="@+id/etLoginPw"
@@ -31,28 +46,41 @@
 
     <ImageView
         android:id="@+id/ivLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        app:srcCompat="@drawable/main_pig" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#625A72"
         android:text="로그인"
+        app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="@+id/etLoginPw"
         app:layout_constraintStart_toStartOf="@+id/etLoginPw"
         app:layout_constraintTop_toBottomOf="@+id/etLoginPw" />
 
-    <Button
-        android:id="@+id/btnJoinAct"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <Button
+        android:id="@+id/btnJoinAct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#0081B5"
         android:text="회원가입"
+        app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />

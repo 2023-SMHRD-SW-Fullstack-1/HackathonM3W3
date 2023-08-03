@@ -17,7 +17,7 @@ router.post("/feed", (req, res)=>{
             let encodeP = Buffer.from(readFileP).toString('base64');
             rows[i].mb_profile = encodeP;
 
-            let readFileB = fs.readFileSync('public/img/member/'+rows[i].board_img+'.jpg');
+            let readFileB = fs.readFileSync('public/img/board/'+rows[i].board_img+'.jpg');
             let encodeB = Buffer.from(readFileB).toString('base64');
             rows[i].board_img = encodeB;
         }
@@ -40,7 +40,7 @@ router.post("/feed", (req, res)=>{
 router.post('/write', (req, res)=>{
     // 아이디, 날짜, 금액, 카테고리, 이미지, 내용
     let {mb_id, board_at, board_cost, board_cg, board_img, board_content} = JSON.parse(req.body.board)
-    console.log(req.body.board)
+    
 
 
     //img파일 디코딩(base64)

@@ -22,7 +22,7 @@
             android:layout_height="50dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="#FEC761"
+            android:backgroundTint="#D5D6D6"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/main_add" />
 
@@ -32,7 +32,7 @@
             android:layout_height="50dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="#FEC761"
+            android:backgroundTint="#D5D6D6"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/main_camera" />
 
@@ -60,15 +60,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.15" />
 
     <Button
         android:id="@+id/boardBtnSend"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#0081B5"
+        android:backgroundTint="#625A72"
         android:text="게시물 등록"
+        android:textStyle="bold"
         app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="@+id/board_content"
         app:layout_constraintHorizontal_bias="0.502"
@@ -77,8 +78,8 @@
 
     <ImageView
         android:id="@+id/boardImg"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
