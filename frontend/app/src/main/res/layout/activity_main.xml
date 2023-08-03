@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F1F1F1"
     tools:context=".MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -29,14 +30,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_begin="81dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         app:cardCornerRadius="50dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +48,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/user" />
+            app:srcCompat="@drawable/dollar" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -69,6 +71,7 @@
         android:id="@+id/fl"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/bnv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

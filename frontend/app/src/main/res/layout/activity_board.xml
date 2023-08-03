@@ -74,8 +74,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#0081B5"
+            android:backgroundTint="#625A72"
             android:text="날짜선택"
+            android:textStyle="bold"
             app:cornerRadius="10dp" />
     </LinearLayout>
 

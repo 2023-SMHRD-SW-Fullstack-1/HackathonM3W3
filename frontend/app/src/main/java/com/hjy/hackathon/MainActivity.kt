@@ -3,14 +3,11 @@ package com.hjy.hackathon
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
 import com.hjy.hackathon.databinding.ActivityMainBinding
 
 import com.hjy.hackathon.mainfragment.CalendarFragment
 import com.hjy.hackathon.mainfragment.ChatListFragment
 import com.hjy.hackathon.mainfragment.FeedFragment
-import com.hjy.hackathon.mainfragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root);
 
 
-        //MainAcitivty로 전환되자마자 MainFragement 화면 보여주기
+        //MainAcitivty로 전환되자마자 CalenderFragement 화면 보여주기
         supportFragmentManager.beginTransaction().replace(
             R.id.fl,
-            MainFragment()
+            CalendarFragment()
         ).commit()
 
 
@@ -33,17 +30,11 @@ class MainActivity : AppCompatActivity() {
 
            when(it.itemId){
                R.id.tab1 ->{ // 채팅
-<<<<<<< HEAD
-                   var intent = Intent(this@MainActivity, NewChatActivity::class.java)
-                   startActivity(intent)
-=======
-
                    supportFragmentManager.beginTransaction().replace(
                        binding.fl.id,
                        ChatListFragment()
                    ).commit()
 
->>>>>>> dcf78fc87afa648f0ecaca6c0e96a239dd739529
                }
                R.id.tab2 ->{ // 피드
                    supportFragmentManager.beginTransaction().replace(
@@ -58,14 +49,11 @@ class MainActivity : AppCompatActivity() {
                R.id.tab4 ->{ // 마이페이지
                    supportFragmentManager.beginTransaction().replace(
                        binding.fl.id,
-                       MainFragment()
+                       CalendarFragment()
                    ).commit()
                }
                R.id.tab5 ->{ // 회원정보수정
-                   supportFragmentManager.beginTransaction().replace(
-                       binding.fl.id,
-                       CalendarFragment()
-                   ).commit()
+
 
                }
 

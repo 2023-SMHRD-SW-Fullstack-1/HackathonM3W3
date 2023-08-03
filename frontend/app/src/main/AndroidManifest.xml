@@ -51,10 +51,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
 
->>>>>>> dcf78fc87afa648f0ecaca6c0e96a239dd739529
         <activity
             android:name=".MainActivity"
             android:exported="true" />
