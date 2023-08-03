@@ -62,17 +62,16 @@ class CalendarFragment : Fragment() {
 
         binding.textView2.text = YearMonth.now().toString()
         val currentMonth = YearMonth.now()
-        Log.d("YearMonth", currentMonth.toString());
-        val startMonth = currentMonth.minusMonths(100)  // Adjust as needed
-        val endMonth = currentMonth.plusMonths(100)  // Adjust as needed
-//        val firstDayOfWeek = firstDayOfWeekFromLocale() // Available from the library
+        val startMonth = currentMonth.minusMonths(100)
+        val endMonth = currentMonth.plusMonths(100)
         val daysOfWeek = daysOfWeek(DayOfWeek.SUNDAY)
+
         binding.calendarView.setup(startMonth, endMonth, daysOfWeek.first())
         binding.calendarView.scrollToMonth(currentMonth)
         binding.calendarView.monthScrollListener = {
-            binding.textView2.text = it.yearMonth.toString()
-
+            binding.textView2.text = it.yearMonth.year.toString() + "년 " + String.format("%02d", it.yearMonth.month.value) + "월"
         }
+
 
 
 
@@ -86,10 +85,16 @@ class CalendarFragment : Fragment() {
                 container.dayView.text = data.date.dayOfMonth.toString()
                 if (data.position == DayPosition.MonthDate) {
                     container.dayView.setTextColor(Color.BLACK)
-                    container.textView.setTextColor(Color.BLACK)
+                    container.textView.setTextColor(Color.rgb(247,163,192))
+                    if (data.date.dayOfWeek == DayOfWeek.SUNDAY) {
+                        container.dayView.setTextColor(Color.rgb(214,44,107))
+                    }else if(data.date.dayOfWeek == DayOfWeek.SATURDAY){
+                        container.dayView.setTextColor(Color.rgb(25, 145, 251))
+                    }
+
                 } else {
-                    container.dayView.setTextColor(Color.GRAY)
-                    container.textView.setTextColor(Color.GRAY)
+                    container.dayView.setTextColor(Color.rgb(226,226,226))
+                    container.textView.setTextColor(Color.rgb(226,226,226))
                 }
             }
         }
