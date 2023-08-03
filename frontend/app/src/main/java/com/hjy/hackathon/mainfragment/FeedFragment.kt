@@ -38,16 +38,16 @@ class FeedFragment : Fragment() {
         val data = ArrayList<FeedVO>()
 
         val request = object : StringRequest(
-            Request.Method.GET,
-            "http://172.30.1.23:8888/board",
+            Request.Method.POST,
+            "http://172.30.1.28:8888/board/feed",
             { response ->
                 Log.d("response", response.toString())
 
                 var result = JSONArray(response)
 
                 for (i in 0 until result.length()) {
-                    val board = Gson().fromJson(result.get(i).toString(), FeedVO::class.java)
-                    data.add(board)
+                    val feed = Gson().fromJson(result.get(i).toString(), FeedVO::class.java)
+                    data.add(feed)
                 }
 
                 val adapter : FeedAdapter = FeedAdapter(requireContext(),R.layout.feed_item ,data)

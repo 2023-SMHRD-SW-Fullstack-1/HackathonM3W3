@@ -28,6 +28,9 @@
             android:label="@string/title_activity_board_second"
             android:theme="@style/Theme.Hackathon" />
         <activity
+            android:name=".RoomActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewChatActivity"
             android:exported="true" />
         <activity
@@ -51,10 +54,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
-
->>>>>>> dcf78fc87afa648f0ecaca6c0e96a239dd739529
         <activity
             android:name=".MainActivity"
             android:exported="true" />
