@@ -53,7 +53,7 @@ class FeedFragment : Fragment() {
                     data.add(feed)
                 }
 
-                val adapter: FeedAdapter = FeedAdapter(requireContext(), R.layout.feed_item, data)
+                val adapter: FeedAdapter = FeedAdapter(requireActivity(), R.layout.feed_item, data)
                 rv_feedList.layoutManager = LinearLayoutManager(requireActivity())
                 rv_feedList.adapter = adapter
 
@@ -67,5 +67,6 @@ class FeedFragment : Fragment() {
 
         return view
     }
+
 
 }

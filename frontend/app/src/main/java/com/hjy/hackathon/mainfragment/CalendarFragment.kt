@@ -29,6 +29,7 @@ import com.hjy.hackathon.adapter.DayViewContainer
 import com.hjy.hackathon.adapter.MonthViewContainer
 import com.hjy.hackathon.databinding.FragmentCalendarBinding
 import com.hjy.hackathon.vo.CalendarVO
+import com.hjy.hackathon.vo.Category
 import com.hjy.hackathon.vo.MemberVO
 import com.kizitonwose.calendar.core.CalendarDay
 import com.kizitonwose.calendar.core.CalendarMonth
@@ -36,6 +37,9 @@ import com.kizitonwose.calendar.core.DayPosition
 import com.kizitonwose.calendar.core.daysOfWeek
 import com.kizitonwose.calendar.view.MonthDayBinder
 import com.kizitonwose.calendar.view.MonthHeaderFooterBinder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.json.JSONArray
 import java.time.DayOfWeek
 import java.time.YearMonth
@@ -50,7 +54,10 @@ class CalendarFragment : Fragment() {
     private val binding get() = _binding!!
     lateinit var reqQueue: RequestQueue
 
-    lateinit var map : HashMap<String, String>;
+    var map = HashMap<String, String>();
+    var map2 = HashMap<String, TextView>();
+    var category = Category();
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,28 +70,29 @@ class CalendarFragment : Fragment() {
         reqQueue = Volley.newRequestQueue(requireActivity())
 
 
+        var date: String = YearMonth.now().toString().substring(0, 7);
+
         var spf: SharedPreferences =
             requireActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE)
         val strMember = spf.getString("member", "기본값")
         val memberVO = Gson().fromJson(strMember, MemberVO::class.java)
         val id = memberVO.mb_id
 
+        request(id, date);
+
 
         var content = binding.rvContent
-        var data = ArrayList<ContentVO>()
+        var dataList = ArrayList<ContentVO>()
 
-        data.add(ContentVO("아침", "12,000", null))
-        data.add(ContentVO("점심", "9,500", null))
-        data.add(ContentVO("저녁", "32,000", null))
-
-        var adapter: ContentAdapter =
-            ContentAdapter(requireActivity(), R.layout.calendal_day_content, data)
-        content.layoutManager = LinearLayoutManager(requireActivity()) // 목록형
-        content.adapter = adapter
+//        dataList.add(ContentVO("아침", "12,000", null))
+//        dataList.add(ContentVO("점심", "9,500", null))
+//        dataList.add(ContentVO("저녁", "32,000", null))
 
 
 
-        var date: String = YearMonth.now().toString()
+
+
+
 
         //년, 월 불러오기
         binding.textView2.text = YearMonth.now().toString()
@@ -98,41 +106,17 @@ class CalendarFragment : Fragment() {
             binding.textView2.text = it.yearMonth.year.toString() + "년 " + String.format(
                 "%02d",
                 it.yearMonth.month.value
-            ) + "월"
+            ) + "월";
+            date = it.yearMonth.year.toString() + "-" + String.format("%02d", it.yearMonth.month.value);
+            request(id, date);
+
         }
 
 
 
 
 
-        var request = object : StringRequest(
-            Request.Method.POST,
-            "http://172.30.1.20:8888/calendar",
-            { response ->
-                Log.d("response", response)
-                val result = JSONArray(response);
-                map = HashMap<String, String>();
-                var sum = 0;
-                for (i in 0 until result.length()) {
-                    map.put(result.getJSONObject(i).getString("board_at"), result.getJSONObject(i).getString("total_cost"));
-                    sum += result.getJSONObject(i).getString("total_cost").toInt();
-                }
-                binding.tvTotal.text = sum.toString();
 
-            },
-            {
-                    error->
-                Log.d("error",error.toString())
-
-            }
-
-        ){override fun getParams() : MutableMap<String, String?>{
-            val params:MutableMap<String, String?> = HashMap<String, String?>()
-
-            val am: CalendarVO = CalendarVO(id, date)
-            params.put("Andmember", Gson().toJson(am))
-            return params}}
-        reqQueue.add(request)
 
 
 
@@ -177,13 +161,12 @@ class CalendarFragment : Fragment() {
 
             // Called every time we need to reuse a container.
             override fun bind(container: DayViewContainer, data: CalendarDay) {
-                container.dayView.text = data.date.dayOfMonth.toString()
-                container.textView.text = map.getOrDefault((data.date.toString()),"");
+                container.textView.text = "";
+                map2[data.date.toString()] = container.textView;
+                container.dayView.text = data.date.dayOfMonth.toString();
+
                 if (data.position == DayPosition.MonthDate) {
                     container.dayView.setTextColor(Color.BLACK)
-                    if (container.dayView.text.toString() == "1") {
-                        container.textView.setText("가나다")
-                    }
                     container.textView.setTextColor(Color.rgb(247, 163, 192))
                     if (data.date.dayOfWeek == DayOfWeek.SUNDAY) {
                         container.dayView.setTextColor(Color.rgb(214, 44, 107))
@@ -195,7 +178,42 @@ class CalendarFragment : Fragment() {
                     container.dayView.setTextColor(Color.rgb(226, 226, 226))
                     container.textView.setTextColor(Color.rgb(226, 226, 226))
                 }
+                container.view.setOnClickListener {
+                    dataList.clear();
+                    val request = object : StringRequest(
+                        Request.Method.POST,
+                        "http://172.30.1.28:8888/calendar/day",
+                        { response ->
+                            Log.d("response", response)
+                            val result = JSONArray(response);
+                            for (i in 0 until result.length()){
+                                dataList.add(ContentVO(
+                                    result.getJSONObject(i).getString("board_cg"),
+                                    result.getJSONObject(i).getString("board_cost"),
+                                    category.map.get(result.getJSONObject(i).getString("board_cg")))
+                                );
+                                var adapter: ContentAdapter =
+                                    ContentAdapter(requireActivity(), R.layout.calendal_day_content, dataList)
+                                content.layoutManager = LinearLayoutManager(requireActivity()) // 목록형
+                                content.adapter = adapter
+                            }
 
+                        },
+                        {
+                                error->
+                            Log.d("error",error.toString())
+
+                        }
+
+                    ){override fun getParams() : MutableMap<String, String?>{
+                        val params:MutableMap<String, String?> = HashMap<String, String?>()
+
+                        val am: CalendarVO = CalendarVO(id, data.date.toString());
+                        params.put("calendar", Gson().toJson(am))
+                        return params}
+                    }
+                    reqQueue.add(request);
+                }
 //                var newDate = date+"-"+ container.dayView.text.toString()
 //                Log.d("newDate", newDate)
 //
@@ -256,6 +274,42 @@ class CalendarFragment : Fragment() {
 
            return view
         }
+
+    private fun request(id : String, date : String) {
+        val request = object : StringRequest(
+            Request.Method.POST,
+            "http://172.30.1.28:8888/calendar",
+            { response ->
+                Log.d("response", response)
+                val result = JSONArray(response);
+                var sum = 0;
+                for (i in 0 until result.length()) {
+                    map[result.getJSONObject(i).getString("board_at")] = result.getJSONObject(i).getString("total_cost");
+                    map2[result.getJSONObject(i).getString("board_at")]?.text = result.getJSONObject(i).getString("total_cost");
+                    if (date.split("-")[1] == result.getJSONObject(i).getString("board_at").split("-")[1]) {
+                        sum += result.getJSONObject(i).getString("total_cost").toInt();
+                    }
+                }
+
+                binding.tvTotal.text = sum.toString();
+                map2 = HashMap<String, TextView>();
+            },
+            {
+                    error->
+                Log.d("error",error.toString())
+
+            }
+
+        ){override fun getParams() : MutableMap<String, String?>{
+            val params:MutableMap<String, String?> = HashMap<String, String?>()
+
+            val am: CalendarVO = CalendarVO(id, date)
+            params.put("Andmember", Gson().toJson(am))
+            return params}
+        }
+        reqQueue.add(request);
+
+    }
 
 
     }
