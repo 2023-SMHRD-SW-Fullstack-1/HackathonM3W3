@@ -25,8 +25,35 @@ router.get("/rooms/:id", (req, res)=>{
     });
 });
 
-router.post("/start", (req, res)=>{
-    console.log(req);
+router.get("/start/:id", (req, res)=>{
+    
+    let ids = req.params.id.split("@@@");
+    console.log(ids);
+    let sql = "insert into tb_chatroom (room_content, room_at, room_title) values ('', '', '')";
+    conn.query(sql, function(err, rows, fields){
+        console.log(rows.insertId);
+        let sql2 = "insert into tb_chat values (?, ?)";
+        for (let i = 0; i < ids.length; i++){
+            conn.query(sql2, [rows.insertId, ids[i]], function(err, rows, fields){
+            })
+        }
+        res.send("" + rows.insertId);
+    });
+
+});
+
+router.post("/update", (req, res)=>{
+    let {msg, time, uid} = JSON.parse(req.body.chat);
+    let roomId = parseInt(req.body.roomId);
+    console.log(msg);
+    console.log(time);
+    console.log(uid);
+    console.log(roomId);
+    let sql = "update tb_chatroom set room_content = ?, room_at = ?, room_title = ? where room_idx = ?";
+    conn.query(sql, [msg, time, uid, roomId], function(rows, err, fields){
+        console.log(rows);
+        res.send("Success");
+    });
 })
 
 
