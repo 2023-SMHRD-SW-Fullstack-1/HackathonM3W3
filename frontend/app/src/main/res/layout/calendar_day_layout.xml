@@ -20,7 +20,6 @@
         android:id="@+id/tvIdMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/calendarDayText"
         app:layout_constraintStart_toStartOf="@+id/calendarDayText"
         app:layout_constraintTop_toBottomOf="@+id/calendarDayText" />

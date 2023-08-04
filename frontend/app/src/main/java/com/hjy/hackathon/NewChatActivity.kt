@@ -1,12 +1,19 @@
 package com.hjy.hackathon
 
+import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
@@ -25,16 +32,20 @@ class NewChatActivity : AppCompatActivity() {
     lateinit var rvChat : RecyclerView
     lateinit var btnChatSend : Button
     lateinit var etChatMsg: EditText
+    lateinit var reqQueue : RequestQueue;
     private val auth = FirebaseAuth.getInstance() //추가
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_chat)
 
+        reqQueue = Volley.newRequestQueue(this);
 
         rvChat = findViewById(R.id.rvChat)
         btnChatSend = findViewById(R.id.btnChatSend)
         etChatMsg = findViewById(R.id.etChatMsg)
+
+
 
 
         val spf = getSharedPreferences("mySPF", MODE_PRIVATE);
@@ -43,9 +54,9 @@ class NewChatActivity : AppCompatActivity() {
         var memberVO = Gson().fromJson(member, MemberVO::class.java);
 
 
-        val roomId = intent.getStringExtra("roomId");
+        val roomId = intent.getIntExtra("roomId", 0).toString();
         val database = Firebase.database
-        val myRef = database.getReference(roomId!!)
+        val myRef = database.getReference(roomId)
 
         val data = ArrayList<ChatVO>()
 
@@ -59,7 +70,36 @@ class NewChatActivity : AppCompatActivity() {
 //FireBase RealTime DataBase의 Chat경로에 ChatVO class를 setvalue해줌 !
 //            val chat = ChatVO(loginId,msg,myTime(getTime()))
 //            myRef.push().setValue(chat)
-            myRef.push().setValue(ChatVO(etChatMsg.text.toString(),memberVO.mb_id, myTime(getTime())))
+            val chat = ChatVO(etChatMsg.text.toString(),memberVO.mb_nick, myTime(getTime()));
+//            chat.roomId = roomId.toInt();
+
+
+            val request = object : StringRequest(
+                Request.Method.POST,
+                "http://172.30.1.28:8888/chat/update",
+                {
+                        response ->
+
+
+                },
+                {
+                        error ->
+                    Log.d("error", error.toString());
+                }
+            ){
+                override fun getParams(): MutableMap<String, String>? {
+                    val params : MutableMap<String, String> = HashMap<String, String>();
+                    params.put("chat", Gson().toJson(chat));
+                    params.put("roomId", roomId);
+                    return params;
+                }
+            }
+
+            reqQueue.add(request);
+
+            myRef.push().setValue(chat);
+
+
             etChatMsg.text.clear()
         }
 

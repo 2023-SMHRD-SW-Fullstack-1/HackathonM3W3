@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.hjy.hackathon.R
 
 
-
-
 class NewChatViewHolder (var itemView : View ) : ViewHolder(itemView){
 
 

@@ -2,6 +2,7 @@ package com.hjy.hackathon.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.util.Log
@@ -9,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -18,16 +21,25 @@ import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
-import com.hjy.hackathon.R
+
 import com.hjy.hackathon.vo.BoardVO
 import com.hjy.hackathon.vo.LikeVO
 import org.json.JSONArray
+import com.hjy.hackathon.R
+import com.hjy.hackathon.vo.MemberVO
+import com.hjy.hackathon.vo.SerializableFeed
+import java.io.Serializable
+import com.hjy.hackathon.CommentActivity
 
 class FeedAdapter(
-    var activity: Activity,
-    var template: Int,
-    var data: ArrayList<FeedVO>
+var activity: Activity,
+var template: Int,
+var data: ArrayList<FeedVO>
 ) :
+
+
+
+
     RecyclerView.Adapter<FeedViewHolder>() {
     val reqQueue: RequestQueue = Volley.newRequestQueue(activity);
     val reqQueue2: RequestQueue = Volley.newRequestQueue(activity);
@@ -73,6 +85,22 @@ class FeedAdapter(
         holder.tv_content.text = feed.board_content
         holder.tv_cost.text = feed.board_cost.toString()
         holder.tv_category.text = feed.board_cg
+        holder.img_comment.setOnClickListener {
+            val obj = SerializableFeed(
+                feed.mb_id,
+                feed.mb_profile,
+                feed.board_img,
+                feed.mb_nick,
+                feed.board_content,
+                feed.board_cost.toString(),
+                feed.board_cg
+            )
+
+            var intent = Intent(activity, CommentActivity::class.java);
+            intent.putExtra("feed", obj);
+            activity.startActivity(intent);
+        }
+
 
 
 
@@ -287,6 +315,8 @@ class FeedAdapter(
         }
 
 
+
     }
+
 
 }

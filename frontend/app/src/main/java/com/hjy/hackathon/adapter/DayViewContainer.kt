@@ -6,6 +6,9 @@ import com.hjy.hackathon.R
 import com.kizitonwose.calendar.view.ViewContainer
 
 class DayViewContainer(view: View) : ViewContainer(view) {
+
+
+
     val dayView = view.findViewById<TextView>(R.id.calendarDayText)
     val textView = view.findViewById<TextView>(R.id.tvIdMain);
 
