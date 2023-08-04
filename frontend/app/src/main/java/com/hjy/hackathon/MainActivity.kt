@@ -67,8 +67,8 @@ class MainActivity : AppCompatActivity() {
                    ).commit()
                }
                R.id.tab5 ->{ // 회원정보수정
-
-
+                   var intent = Intent(this@MainActivity, AccountActivity::class.java)
+                   startActivity(intent)
                }
 
            } //when문 끝
