@@ -37,6 +37,11 @@ class MainActivity : AppCompatActivity() {
 
         var calendar = CalendarFragment()
 
+        val spf = getSharedPreferences("mySPF", AppCompatActivity.MODE_PRIVATE);
+        val member0 = spf.getString("member", "")!!;
+        var memberVO0 = Gson().fromJson(member0, MemberVO::class.java);
+        val memberVO1 : MemberVO? = null;
+
         val other = intent.getStringExtra("other");
         if (other != null) {
             val bundle = Bundle();
@@ -51,10 +56,10 @@ class MainActivity : AppCompatActivity() {
                         response ->
                         Log.d("멤버", response.toString());
                         member = response;
-                        var memberVO = Gson().fromJson(member, MemberVO::class.java);
-                        val imageBytes = Base64.decode(memberVO.mb_profile, 0)
+                        var memberVO1 = Gson().fromJson(member, MemberVO::class.java);
+                        val imageBytes = Base64.decode(memberVO1.mb_profile, 0)
                         val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-                        binding.tvNickMain.text = memberVO.mb_id;
+                        binding.tvNickMain.text = memberVO1.mb_id;
                         binding.ivProfileMain.setImageBitmap(image);
                 },
                 {
@@ -73,42 +78,31 @@ class MainActivity : AppCompatActivity() {
 
             reqQueue.add(request);
         } else {
-            val spf = getSharedPreferences("mySPF", AppCompatActivity.MODE_PRIVATE);
-            member = spf.getString("member", "")!!;
-            var memberVO = Gson().fromJson(member, MemberVO::class.java);
-            val imageBytes = Base64.decode(memberVO.mb_profile, 0)
+
+            val imageBytes = Base64.decode(memberVO0.mb_profile, 0)
             val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-            binding.tvNickMain.text = memberVO.mb_id;
+            binding.tvNickMain.text = memberVO0.mb_id;
             binding.ivProfileMain.setImageBitmap(image);
             binding.btnChatStart.visibility = View.INVISIBLE;
         }
 
         binding.btnChatStart.setOnClickListener {
             val request = object : StringRequest(
-                Request.Method.POST,
-                "http://172.30.1.28:8888/chat/start",
+                Request.Method.GET,
+                "http://172.30.1.28:8888/chat/start/" + memberVO0.mb_id + "@@@" + other,
                 {
                         response ->
-                    Log.d("멤버", response.toString());
-                    member = response;
-                    var memberVO = Gson().fromJson(member, MemberVO::class.java);
-                    val imageBytes = Base64.decode(memberVO.mb_profile, 0)
-                    val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-                    binding.tvNickMain.text = memberVO.mb_id;
-                    binding.ivProfileMain.setImageBitmap(image);
+                    var intent = Intent(this, NewChatActivity::class.java);
+                    intent.putExtra("roomId",response.toInt());
+                    startActivity(intent);
+                    finish();
                 },
                 {
                         error ->
                     Log.d("error", error.toString());
                 }
-            ){
-                override fun getParams(): MutableMap<String, String>? {
-                    val params : MutableMap<String, String> = HashMap<String, String>();
-
-
-                    return params;
-                }
-            }
+            ){}
+            reqQueue.add(request);
         }
 
 
@@ -150,8 +144,8 @@ class MainActivity : AppCompatActivity() {
                    ).commit()
                }
                R.id.tab5 ->{ // 회원정보수정
-
-
+                   var intent = Intent(this@MainActivity, AccountActivity::class.java)
+                   startActivity(intent)
                }
 
            } //when문 끝

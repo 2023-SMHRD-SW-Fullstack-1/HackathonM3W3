@@ -88,9 +88,6 @@ class CalendarFragment : Fragment() {
         var content = binding.rvContent
         var dataList = ArrayList<ContentVO>()
 
-//        dataList.add(ContentVO("아침", "12,000", null))
-//        dataList.add(ContentVO("점심", "9,500", null))
-//        dataList.add(ContentVO("저녁", "32,000", null))
 
 
 
@@ -111,12 +108,6 @@ class CalendarFragment : Fragment() {
             request(id, date);
 
         }
-
-
-
-
-
-
 
 
 
@@ -152,15 +143,14 @@ class CalendarFragment : Fragment() {
 
 
 
-
-
         binding.calendarView.dayBinder = object : MonthDayBinder<DayViewContainer> {
             // Called only when a new container is needed.
             override fun create(view: View) = DayViewContainer(view)
 
-
             // Called every time we need to reuse a container.
             override fun bind(container: DayViewContainer, data: CalendarDay) {
+
+
                 container.textView.text = "";
                 map2[data.date.toString()] = container.textView;
                 container.dayView.text = data.date.dayOfMonth.toString();
@@ -178,6 +168,8 @@ class CalendarFragment : Fragment() {
                     container.dayView.setTextColor(Color.rgb(226, 226, 226))
                     container.textView.setTextColor(Color.rgb(226, 226, 226))
                 }
+
+
                 container.view.setOnClickListener {
                     dataList.clear();
                     val request = object : StringRequest(
@@ -214,58 +206,6 @@ class CalendarFragment : Fragment() {
                     }
                     reqQueue.add(request);
                 }
-//                var newDate = date+"-"+ container.dayView.text.toString()
-//                Log.d("newDate", newDate)
-//
-//                var request = object : StringRequest(
-//                    Request.Method.POST,
-//                    "http://172.30.1.20:8888/calendar/dayMoney",
-//                    { response ->
-//                        Log.d("response", response.toString())
-//                        var result = JSONArray(response)
-//
-//                    },
-//                    {
-//                            error ->
-//                        Log.d("error", error.toString())
-//                    }
-//                ){override fun getParams() : MutableMap<String, String?>{
-//                    val params:MutableMap<String, String?> = HashMap<String, String?>()
-//
-//                    params.put("newDate", newDate)
-//                    return params}}
-//                reqQueue.add(request)
-
-
-
-
-                //날짜 클릭 이벤트
-//                container.dayView.setOnClickListener {
-//
-//                    val clickedDate = data.date
-//                    val day =
-//                        "Clicked date: ${clickedDate.year}-${clickedDate.monthValue}-${clickedDate.dayOfMonth}"
-//
-//
-//                    var request = object : StringRequest(
-//                        Request.Method.POST,
-//                        "http://172.30.1.20:8888/calendar",
-//                        { response ->
-//                            Log.d("response", response.toString())
-//                            var result = JSONArray(response)
-//
-//
-//                        },
-//                        { error ->
-//                            Log.d("error", error.toString())
-//                        }
-//
-//                    ) {
-//
-//                        }
-//                    }
-
-
 
                 }
             }
@@ -276,6 +216,12 @@ class CalendarFragment : Fragment() {
         }
 
     private fun request(id : String, date : String) {
+
+        //3자리마다 콤마 찍어주는 함수
+        fun Int.formatWithCommas(): String {
+            return String.format("%,d", this)
+        }
+
         val request = object : StringRequest(
             Request.Method.POST,
             "http://172.30.1.28:8888/calendar",
@@ -285,13 +231,20 @@ class CalendarFragment : Fragment() {
                 var sum = 0;
                 for (i in 0 until result.length()) {
                     map[result.getJSONObject(i).getString("board_at")] = result.getJSONObject(i).getString("total_cost");
-                    map2[result.getJSONObject(i).getString("board_at")]?.text = result.getJSONObject(i).getString("total_cost");
+                    val totalCost = result.getJSONObject(i).getString("total_cost").toInt()
+                    map2[result.getJSONObject(i).getString("board_at")]?.text = totalCost.formatWithCommas()
                     if (date.split("-")[1] == result.getJSONObject(i).getString("board_at").split("-")[1]) {
-                        sum += result.getJSONObject(i).getString("total_cost").toInt();
+                        sum += totalCost;
+//                    map[result.getJSONObject(i).getString("board_at")] = result.getJSONObject(i).getString("total_cost");
+//                    map2[result.getJSONObject(i).getString("board_at")]?.text = result.getJSONObject(i).getString("total_cost");
+//                    if (date.split("-")[1] == result.getJSONObject(i).getString("board_at").split("-")[1]) {
+//                        sum += result.getJSONObject(i).getString("total_cost").toInt();
                     }
                 }
 
-                binding.tvTotal.text = sum.toString();
+                //3자리마다 콤마 찍어주는 함수 사용
+                binding.tvTotal.text = sum.formatWithCommas()
+                //binding.tvTotal.text = sum.toString();
                 map2 = HashMap<String, TextView>();
             },
             {
@@ -312,5 +265,13 @@ class CalendarFragment : Fragment() {
     }
 
 
+
+
+
+
     }
+
+
+
+
 
