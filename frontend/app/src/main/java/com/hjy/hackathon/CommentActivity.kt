@@ -8,8 +8,10 @@ import android.util.Base64
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.google.gson.Gson
 import com.hjy.hackathon.databinding.ActivityCommentBinding
 import com.hjy.hackathon.vo.FeedVO
+import com.hjy.hackathon.vo.MemberVO
 import com.hjy.hackathon.vo.SerializableFeed
 
 class CommentActivity : AppCompatActivity() {
@@ -44,10 +46,15 @@ class CommentActivity : AppCompatActivity() {
         }
 
         ivProfile.setOnClickListener {
-
-            var intent = Intent(this, MainActivity::class.java);
-            intent.putExtra("other", feed.id);
-            startActivity(intent);
+            val spf = getSharedPreferences("mySPF", AppCompatActivity.MODE_PRIVATE);
+            val member = spf.getString("member", "")!!;
+            var memberVO = Gson().fromJson(member, MemberVO::class.java);
+            if (memberVO.mb_id != feed.id) {
+                var intent = Intent(this, MainActivity::class.java);
+                intent.putExtra("other", feed.id);
+                startActivity(intent);
+                finish();
+            }
         }
 
     }

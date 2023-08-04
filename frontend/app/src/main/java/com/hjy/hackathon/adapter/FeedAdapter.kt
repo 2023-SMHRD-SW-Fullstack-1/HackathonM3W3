@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hjy.hackathon.vo.FeedVO
 import com.hjy.hackathon.viewHolder.FeedViewHolder
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.hjy.hackathon.CommentActivity
 import com.hjy.hackathon.R
+import com.hjy.hackathon.vo.MemberVO
 import com.hjy.hackathon.vo.SerializableFeed
 import java.io.Serializable
 
@@ -67,6 +69,7 @@ class FeedAdapter(var context: Activity, var template: Int, var data: ArrayList<
                 feed.board_cost.toString(),
                 feed.board_cg
             )
+
             var intent = Intent(context, CommentActivity::class.java);
             intent.putExtra("feed", obj);
             context.startActivity(intent);
