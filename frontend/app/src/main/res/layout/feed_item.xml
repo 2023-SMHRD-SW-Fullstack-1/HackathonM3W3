@@ -91,9 +91,9 @@
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivProfileMain"
+        app:layout_constraintEnd_toStartOf="@+id/ivProfileMain"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileMain" />
 
     <TextView
         android:id="@+id/tv_content"
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivProfileMain"
         android:layout_width="25dp"
         android:layout_height="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_cost"

@@ -32,9 +32,9 @@ import java.io.Serializable
 import com.hjy.hackathon.CommentActivity
 
 class FeedAdapter(
-var activity: Activity,
-var template: Int,
-var data: ArrayList<FeedVO>
+    var activity: Activity,
+    var template: Int,
+    var data: ArrayList<FeedVO>
 ) :
 
 

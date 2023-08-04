@@ -1,6 +1,5 @@
 package com.hjy.hackathon
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +7,6 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.View
-import android.widget.TextView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
@@ -104,10 +102,6 @@ class MainActivity : AppCompatActivity() {
             ){}
             reqQueue.add(request);
         }
-
-
-
-
 
 
         //MainAcitivty로 전환되자마자 CalenderFragement 화면 보여주기
