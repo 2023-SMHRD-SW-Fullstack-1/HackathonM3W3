@@ -93,10 +93,10 @@ open class ProfileActivity : AppCompatActivity() {
         }
 
         val options = BitmapFactory.Options();
-        options.inSampleSize = 4; // 4개의 픽셀 -> 1개의 픽셀 => 1/4 크기로 변환
+        options.inSampleSize = 1; // 4개의 픽셀 -> 1개의 픽셀 => 1/4 크기로 변환
 
         // filter : true(선명)
-        val resized = Bitmap.createScaledBitmap(bitmap!!, 100, 100, true);
+        val resized = Bitmap.createScaledBitmap(bitmap!!, 200, 200, true);
         encodeBitmapImg(resized);
     }
 

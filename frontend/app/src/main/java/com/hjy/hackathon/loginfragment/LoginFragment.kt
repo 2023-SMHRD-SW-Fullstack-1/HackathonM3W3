@@ -69,7 +69,7 @@ class LoginFragment : Fragment() {
                 override fun getParams(): MutableMap<String, String>? {
                     val params : MutableMap<String, String> = HashMap<String, String>();
 
-                    val member = MemberVO(id, pw, null, null);
+                    val member = MemberVO(id, pw, "", null);
                     params.put("member", Gson().toJson(member));
                     return params;
                 }
