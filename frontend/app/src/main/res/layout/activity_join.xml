@@ -20,8 +20,10 @@
             android:id="@+id/ivJoin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/dollar" />
+
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/dollar" />
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
