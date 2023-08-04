@@ -48,6 +48,13 @@ class FeedFragment : Fragment() {
 
                 var result = JSONArray(response)
 
+//                Log.d("리절트값", result.toString())
+//                val jsonObject = result.getJSONObject(0)
+//                val board_idx = jsonObject.getInt("board_idx")
+//                Log.d("보내줄 값", board_idx.toString())
+
+
+
                 for (i in 0 until result.length()) {
                     val feed = Gson().fromJson(result.get(i).toString(), FeedVO::class.java)
                     data.add(feed)
