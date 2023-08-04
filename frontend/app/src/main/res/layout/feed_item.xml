@@ -119,7 +119,7 @@
         app:srcCompat="@drawable/main_won" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_likeCnt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

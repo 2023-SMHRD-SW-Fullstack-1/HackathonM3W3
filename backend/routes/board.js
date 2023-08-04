@@ -62,7 +62,7 @@ router.post('/write', (req, res)=>{
 
 
 // 좋아요 누르면 DB의 tb_like테이블에 insert됨
-router.get('/like', (req, res) => {
+router.post('/like', (req, res) => {
     let {mb_id, board_idx} = JSON.parse(req.body.board)
     let sql = "insert into tb_like (mb_id, board_idx) value (?,?)"
     conn.query(sql,[mb_id, board_idx], (err, rows) => {
@@ -70,7 +70,38 @@ router.get('/like', (req, res) => {
             console.log(err)
             res.send('Fail')
         } else {
+            console.log("좋아요 추가 성공");
             res.send('Success')
+        }
+    })
+})
+
+
+// 좋아요 취소하면 DB의 tb_like테이블에 delete됨
+router.post('/dislike', (req, res) => {
+    let {mb_id, board_idx} = JSON.parse(req.body.board)
+    let sql = "delete from tb_like where mb_id = ? and board_idx = ?"
+    conn.query(sql,[mb_id, board_idx], (err, rows) => {
+        if (err) {
+            console.log(err)
+            res.send('Fail')
+        } else {
+            console.log("좋아요 취소 성공");
+            res.send('Success')
+        }
+    })
+})
+
+router.post('/likeCnt', (req, res) => {
+    let {mb_id, board_idx} = JSON.parse(req.body.board)
+    let sql = "SELECT COUNT(board_idx) FROM tb_like where mb_id = ? and board_idx = ?"
+    conn.query(sql, [mb_id, board_idx], (err, rows) => {
+        if (err) {
+            console.log(err)
+            res.send('Fail')
+        } else {
+            console.log("좋아요 개수 가져오기");
+            res.send(rows)
         }
     })
 })
