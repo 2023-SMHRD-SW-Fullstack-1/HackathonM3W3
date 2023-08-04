@@ -37,6 +37,8 @@ class NewChatActivity : AppCompatActivity() {
         etChatMsg = findViewById(R.id.etChatMsg)
 
 
+
+
         val spf = getSharedPreferences("mySPF", MODE_PRIVATE);
 
         val member = spf.getString("member", "");
