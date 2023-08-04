@@ -1,5 +1,6 @@
 package com.hjy.hackathon
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
@@ -45,20 +47,20 @@ class MainActivity : AppCompatActivity() {
             val bundle = Bundle();
             bundle.putString("other", other);
             calendar.arguments= bundle;
-            binding.bnv.visibility = View.GONE;
+
 
             val request = object : StringRequest(
                 Request.Method.POST,
                 "http://172.30.1.28:8888/member",
                 {
                         response ->
-                        Log.d("멤버", response.toString());
-                        member = response;
-                        var memberVO1 = Gson().fromJson(member, MemberVO::class.java);
-                        val imageBytes = Base64.decode(memberVO1.mb_profile, 0)
-                        val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-                        binding.tvNickMain.text = memberVO1.mb_id;
-                        binding.ivProfileMain.setImageBitmap(image);
+                    Log.d("멤버", response.toString());
+                    member = response;
+                    var memberVO1 = Gson().fromJson(member, MemberVO::class.java);
+                    val imageBytes = Base64.decode(memberVO1.mb_profile, 0)
+                    val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+                    binding.tvNickMain.text = memberVO1.mb_nick;
+                    binding.ivProfileMain.setImageBitmap(image);
                 },
                 {
                         error ->
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
             val imageBytes = Base64.decode(memberVO0.mb_profile, 0)
             val image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-            binding.tvNickMain.text = memberVO0.mb_id;
+            binding.tvNickMain.text = memberVO0.mb_nick;
             binding.ivProfileMain.setImageBitmap(image);
             binding.btnChatStart.visibility = View.INVISIBLE;
         }
@@ -104,6 +106,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
+
+
+
         //MainAcitivty로 전환되자마자 CalenderFragement 화면 보여주기
         supportFragmentManager.beginTransaction().replace(
             R.id.fl,
@@ -113,36 +119,36 @@ class MainActivity : AppCompatActivity() {
 
         binding.bnv.setOnItemSelectedListener{
 
-           when(it.itemId){
-               R.id.tab1 ->{ // 채팅
-                   supportFragmentManager.beginTransaction().replace(
-                       binding.fl.id,
-                       ChatListFragment()
-                   ).commit()
+            when(it.itemId){
+                R.id.tab1 ->{ // 채팅
+                    supportFragmentManager.beginTransaction().replace(
+                        binding.fl.id,
+                        ChatListFragment()
+                    ).commit()
 
-               }
-               R.id.tab2 ->{ // 피드
-                   supportFragmentManager.beginTransaction().replace(
-                       binding.fl.id,
-                       FeedFragment()
-                   ).commit()
-               }
-               R.id.tab3 ->{ // 게시물등록
-                   var intent = Intent(this@MainActivity, BoardActivity::class.java)
-                   startActivity(intent)
-               }
-               R.id.tab4 ->{ // 마이페이지
-                   supportFragmentManager.beginTransaction().replace(
-                       binding.fl.id,
-                       CalendarFragment()
-                   ).commit()
-               }
-               R.id.tab5 ->{ // 회원정보수정
-                   var intent = Intent(this@MainActivity, AccountActivity::class.java)
-                   startActivity(intent)
-               }
+                }
+                R.id.tab2 ->{ // 피드
+                    supportFragmentManager.beginTransaction().replace(
+                        binding.fl.id,
+                        FeedFragment()
+                    ).commit()
+                }
+                R.id.tab3 ->{ // 게시물등록
+                    var intent = Intent(this@MainActivity, BoardActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.tab4 ->{ // 마이페이지
+                    supportFragmentManager.beginTransaction().replace(
+                        binding.fl.id,
+                        CalendarFragment()
+                    ).commit()
+                }
+                R.id.tab5 ->{ // 회원정보수정
+                    var intent = Intent(this, AccountActivity::class.java);
+                    startActivity(intent);
+                }
 
-           } //when문 끝
+            } //when문 끝
             true
         } //bnv 클릭 끝
 
