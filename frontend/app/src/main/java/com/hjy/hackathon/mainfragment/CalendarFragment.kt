@@ -76,7 +76,11 @@ class CalendarFragment : Fragment() {
             requireActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE)
         val strMember = spf.getString("member", "기본값")
         val memberVO = Gson().fromJson(strMember, MemberVO::class.java)
-        val id = memberVO.mb_id
+        var id = memberVO.mb_id
+
+        if (arguments?.getString("other") != null) {
+            id = arguments?.getString("other")!!;
+        }
 
         request(id, date);
 
@@ -87,10 +91,6 @@ class CalendarFragment : Fragment() {
 //        dataList.add(ContentVO("아침", "12,000", null))
 //        dataList.add(ContentVO("점심", "9,500", null))
 //        dataList.add(ContentVO("저녁", "32,000", null))
-
-
-
-
 
 
 
