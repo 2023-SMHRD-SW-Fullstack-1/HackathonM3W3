@@ -61,6 +61,7 @@ class BoardSecondActivity : ProfileActivity() {
         // BoardAcitivity에서 intent통해서 가져온 값
         var secondIntent = intent
         var date = secondIntent.getStringExtra("date")
+
         var cost = secondIntent.getIntExtra("cost", 0)
         var category = secondIntent.getStringExtra("category")
 
@@ -86,6 +87,9 @@ class BoardSecondActivity : ProfileActivity() {
 
                     val params: MutableMap<String, String> = HashMap<String, String>()
                     // 아이디, 날짜, 금액, 카테고리, 이미지, 내용
+                    val arr = date!!.split("-");
+                    if (arr[1].length < 2) date = arr[0] + "-0" + arr[1] else date = arr[0] + "-" + arr[1];
+                    if (arr[2].length < 2) date = date + "-0" + arr[2] else date = date + "-" + arr[1];
                     val board = BoardVO(id, date, cost, category, img, content)
                     params.put("board", Gson().toJson(board))
                     return params
