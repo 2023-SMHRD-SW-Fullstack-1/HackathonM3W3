@@ -43,7 +43,7 @@ class NewChatActivity : AppCompatActivity() {
         var memberVO = Gson().fromJson(member, MemberVO::class.java);
 
 
-        val roomId = intent.getStringExtra("roomId");
+        val roomId = intent.getIntExtra("roomId", 0).toString();
         val database = Firebase.database
         val myRef = database.getReference(roomId!!)
 

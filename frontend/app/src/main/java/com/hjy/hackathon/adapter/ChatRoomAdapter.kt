@@ -16,11 +16,6 @@ import android.widget.ImageView
 class ChatRoomAdapter(val context: Context, val chatroomList : ArrayList<ChatRoomVO>, private val onItemClickListener: onItemClickListener.OnItemClickListener)
     : RecyclerView.Adapter<ChatRoomAdapter.ViewHolder>() {
 
-//    lateinit var monItemClickListener: onItemClickListener
-//
-//    fun setOnItemClickListener(onItemClickListener: onItemClickListener) {
-//        monItemClickListener = onItemClickListener
-//    }
 
     inner class ViewHolder(itemView: View, private val onItemClickListener: onItemClickListener.OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val imgCRT: ImageView
@@ -49,43 +44,18 @@ class ChatRoomAdapter(val context: Context, val chatroomList : ArrayList<ChatRoo
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        var oppUid = chatroomList[position].uidOne
-//        if (chatroomList[position].uidOne == FBAuth.getUid())
-//            oppUid = chatroomList[position].uidTwo
 
-//        getUserNick(oppUid, holder.tvCRTNick, holder.imgCRT)
 
         holder.tvCRTLastMsg.text = chatroomList[position].lastChatMsg
-        holder.tvCRTNick.text = chatroomList[position].uidOne
+        holder.tvCRTNick.text = chatroomList[position].idx.toString()
         holder.tvCRTLastMsgTime.text = chatroomList[position].lastChatTime
-//       holder.tvCRTLastMsgTime.text = FBAuth.myTime(chatroomList[position].lastChatTime)
+
     }
 
     override fun getItemCount(): Int {
         return chatroomList.size
     }
 
-//    fun getImageData(key : String, view: ImageView){
-//        val storageReference = Firebase.storage.reference.child("$key.png")
-//
-//        storageReference.downloadUrl.addOnCompleteListener { task->
-//            if (task.isSuccessful){
-//                Glide.with(context)
-//                    .load(task.result)
-//                    .into(view)
-//            }
-//        }
-//    }
 
-//    fun getUserNick(uid: String, tv: TextView, iv: ImageView){
-//        FBDatabase.database.getReference("member").child(uid).get().addOnSuccessListener {
-//            val item = it.getValue(MemberVO::class.java) as MemberVO
-//            tv.setText(item.nick)
-//            getImageData(item.id, iv)
-//
-//        }.addOnFailureListener{
-//            Log.e("firebase", "Error getting data", it)
-//        }
-//    }
 
 }
